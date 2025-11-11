@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Stockholder Dataroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-900">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-xl bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8">
+      <!-- Header -->
+      <header class="mb-6">
+        <h1 class="text-xl font-semibold text-slate-900">
+          Stockholder Dataroom
+        </h1>
+        <p class="mt-1 text-sm text-slate-500">
+          Confidential – for stockholders and their advisors only.
+        </p>
+        <p class="mt-1 text-xs text-slate-400">
+          Last updated: <span class="font-medium text-slate-500">[Update this date]</span>
+        </p>
+      </header>
+
+      <!-- Files list -->
+      <section class="space-y-3">
+        <h2 class="text-sm font-medium text-slate-800">
+          Documents
+        </h2>
+
+        <!-- File 1: Live link -->
+        <a href="https://realsource451.sharepoint.com/:b:/g/EU0ObRYyYppFgyNoaTXZ4hoB2th5kdWXKVIZE5Pnmoxs8w?e=zU4JSE"
+           target="_blank"
+           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
+          <div class="text-sm font-medium text-slate-900">
+            Notice of Solicitation of Written Consent of Stockholders
+          </div>
+          <div class="mt-0.5 text-xs text-slate-500">
+            Notice and materials relating to the written consent of stockholders.
+          </div>
+        </a>
+
+        <!-- Placeholder for future File 2 -->
+        <div class="block rounded-lg border border-dashed border-slate-200 px-4 py-3 bg-slate-50">
+          <div class="text-sm font-medium text-slate-500">
+            [Future Document #2]
+          </div>
+          <div class="mt-0.5 text-xs text-slate-400">
+            This document will be posted here once available.
+          </div>
+        </div>
+
+        <!-- Placeholder for future File 3 -->
+        <div class="block rounded-lg border border-dashed border-slate-200 px-4 py-3 bg-slate-50">
+          <div class="text-sm font-medium text-slate-500">
+            [Future Document #3]
+          </div>
+          <div class="mt-0.5 text-xs text-slate-400">
+            This document will be posted here once available.
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-6 border-t border-slate-200 pt-3">
+        <p class="text-[11px] text-slate-400">
+          This material is confidential and intended solely for the recipient in connection with evaluating
+          the proposed transaction. Do not distribute without prior written consent.
+        </p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
