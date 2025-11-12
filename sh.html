@@ -4,90 +4,251 @@
   <meta charset="utf-8" />
   <title>Stockholder Dataroom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Tailwind CDN -->
+  <meta name="color-scheme" content="light only">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-100 text-slate-900" data-page="SH">
-  <div class="min-h-screen flex items-center justify-center px-4">
-    <div class="w-full max-w-xl bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8">
-      <!-- Header -->
-      <header class="mb-6">
-        <h1 class="text-xl font-semibold text-slate-900">
-          RealSource Properties Stockholder Dataroom
-        </h1>
-        <p class="mt-1 text-sm text-slate-500">
-          Confidential – for stockholders and their advisors only.
-        </p>
-        <p class="mt-1 text-xs text-slate-400">
-          Last updated: <span class="font-medium text-slate-500">11/12/2025</span>
-        </p>
-      </header>
-
-      <!-- Files list -->
-      <section class="space-y-3">
-        <h2 class="text-sm font-medium text-slate-800">Documents</h2>
-
-        <!-- Notice (Stockholders) -->
-        <a href="https://realsource451.sharepoint.com/:b:/g/Eb1cbowaGr5JhD347gIg1iwBeoWPbWPJVmkc_Sn7YpQGOg?e=D7bSlI"
-           target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">
-            Notice of Solicitation of Written Consent of Stockholders
-          </div>
-          <div class="mt-0.5 text-xs text-slate-500">
-            Notice and materials relating to the written consent of stockholders.
-          </div>
-        </a>
-
-        <!-- Annexes -->
-        <a href="https://realsource451.sharepoint.com/:b:/g/ESXZyPh392tGgMmyIQQfy3ABFqzcJE0ppJEsjjJ5H11T0Q?e=1z8vIc" target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">Annex A-1 – Agreement and Plan of Merger</div>
-          <div class="mt-0.5 text-xs text-slate-500">Definitive merger agreement for the proposed transaction.</div>
-        </a>
-
-        <a href="https://realsource451.sharepoint.com/:b:/g/ESHGmcJyoH1DvOlkh9RkqWkBSPwLpAdYn3aosFQIhpfi-A?e=ET4Zxv" target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">Annex B – Internalization Agreement</div>
-          <div class="mt-0.5 text-xs text-slate-500">Agreement detailing internalization of management functions.</div>
-        </a>
-
-        <a href="https://realsource451.sharepoint.com/:b:/g/EeTuVPVfV7xFqqvCeGLWIW4BnPaq8xcdWPNL1Htatycaeg?e=LyDqTs" target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">Annex D – CCI Annual Report on Form 10-K (Year Ended Dec 31, 2024)</div>
-          <div class="mt-0.5 text-xs text-slate-500">Annual financial statements and disclosures for CCI.</div>
-        </a>
-
-        <a href="https://realsource451.sharepoint.com/:b:/g/Ecu6ML_iZuBKjGMVVmK3pqwBaASNipiE3cL_UU5jo-Ix0Q?e=yAunGy" target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">Annex E – CCI Quarterly Report on Form 10-Q (Period Ended June 30, 2025)</div>
-          <div class="mt-0.5 text-xs text-slate-500">Quarterly report and MD&A.</div>
-        </a>
-
-        <a href="https://realsource451.sharepoint.com/:b:/g/EfH7C1QFI-NNl2mD7mRAyzoBLJBQ7r9WL8xCfVxhX_S-bQ?e=hbKZHn" target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">Annex F – CROP Financial Statements</div>
-          <div class="mt-0.5 text-xs text-slate-500">Financial statements for CROP.</div>
-        </a>
-
-        <a href="https://realsource451.sharepoint.com/:b:/g/EYUKa4KTDrxLht_Y6arj_jIBAG-vQyI0fgg28l1HE0nrBA?e=76yd2E" target="_blank"
-           class="block rounded-lg border border-slate-200 px-4 py-3 hover:border-slate-400 hover:bg-slate-50 transition">
-          <div class="text-sm font-medium text-slate-900">Annex I – MD&A of Financial Condition and Results of Operations</div>
-          <div class="mt-0.5 text-xs text-slate-500">MD&A for the RS Parties.</div>
-        </a>
-      </section>
-
-      <!-- Footer -->
-      <footer class="mt-6 border-t border-slate-200 pt-3">
-        <p class="text-[11px] text-slate-400">
-          This material is confidential and intended solely for the recipient in connection with evaluating
-          the proposed transaction. Do not distribute without prior written consent.
-        </p>
-      </footer>
+  <!-- Top bar -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
+      <div class="shrink-0 rounded-xl bg-slate-900 text-white px-2.5 py-1 text-xs font-semibold">SH</div>
+      <h1 class="text-sm sm:text-base font-semibold">RealSource Properties • Stockholder Dataroom</h1>
+      <div class="ml-auto text-[11px] text-slate-500 hidden sm:block">Last updated: 11/12/2025</div>
     </div>
-  </div>
+  </header>
 
-  <!-- ID Gate (agreement checkbox ABOVE name) -->
+  <main class="mx-auto max-w-3xl px-4 py-6">
+    <!-- Search -->
+    <section class="mb-4">
+      <div class="rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <div class="relative w-full">
+            <input id="filter" type="search"
+              placeholder="Search documents (e.g., Annex B, 10-K, 10-Q, MD&A, Pro Forma)"
+              class="w-full rounded-lg border border-slate-300 px-3 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
+            <svg class="pointer-events-none absolute right-2 top-2.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="none">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-4.3-4.3M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>
+          </div>
+          <div class="text-[11px] text-slate-500">Tip: type a letter (A–M), “10-K”, “10-Q”, “MD&amp;A”, or “Pro Forma”.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlight: PPM -->
+    <section class="mb-5">
+      <a href="https://realsource451.sharepoint.com/:b:/g/EY94WlZnhx5LvXVBjtvihBwBGUSUucUh8nPSsB55Xk11Lw?e=TmfY3J"
+         target="_blank"
+         class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex select-none rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">PPM</span>
+          <div>
+            <div class="text-sm sm:text-base font-semibold text-slate-900">
+              Consent Solicitation Statement / Private Placement Memorandum (Nov 12, 2025)
+            </div>
+            <div class="mt-0.5 text-xs text-slate-700">
+              Primary disclosure document covering the proposed transactions.
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Notice -->
+    <section class="mb-6">
+      <a href="https://realsource451.sharepoint.com/:b:/g/Eb1cbowaGr5JhD347gIg1iwBeoWPbWPJVmkc_Sn7YpQGOg?e=tmrxi1"
+         target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="notice solicitation written consent stockholders">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex select-none rounded-md bg-slate-900 text-white text-[10px] font-semibold px-2 py-1">Notice</span>
+          <div>
+            <div class="text-sm font-semibold">Notice of Solicitation of Written Consent of Stockholders</div>
+            <div class="mt-0.5 text-xs text-slate-600">Notice and materials relating to the written consent of stockholders.</div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Annexes -->
+    <section class="space-y-3" id="annex-list">
+      <a href="https://realsource451.sharepoint.com/:b:/g/Ebvg0PMEkbpLoQklLi-u3I8B4h3pIjSevso_SfWfGvNS6g?e=c4vLMT" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex a-1 agreement plan merger june 25 2025 merger agreement a1">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex A-1</span>
+          <div>
+            <div class="text-sm font-semibold">Agreement and Plan of Merger (June 25, 2025)</div>
+            <div class="mt-0.5 text-xs text-slate-600">Definitive merger agreement terms and structure.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/Ead8yV4a6zhJiwJ_0P00e_sBKvqiyReHLww80h7A-ZlDbw?e=81sAur" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex a-2 amendment merger agreement november 12 2025 a2">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex A-2</span>
+          <div>
+            <div class="text-sm font-semibold">Amendment to Merger Agreement (Nov 12, 2025)</div>
+            <div class="mt-0.5 text-xs text-slate-600">Amendment to the Agreement and Plan of Merger.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/Ee9-4d8k4JdNrLYmKbbjDyQBf28mrmHqbeDhamstbV7k7g?e=7oULix" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex b internalization agreement management internalization">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex B</span>
+          <div>
+            <div class="text-sm font-semibold">Internalization Agreement</div>
+            <div class="mt-0.5 text-xs text-slate-600">Agreement detailing internalization of management functions.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/ERjfGr_aZMhCub6eqZ9QrgEBHMDmcoaXBybup1o9SQ1HyA?e=LkqoSd" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex c opinion financial advisor fairness opinion board advisor">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex C</span>
+          <div>
+            <div class="text-sm font-semibold">Opinion of RS Board’s Financial Advisor</div>
+            <div class="mt-0.5 text-xs text-slate-600">Advisor opinion provided to the RS Board.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/ESjJBHJga7tAgkmlVnorqrkB_S01FopoCcw3csQKig3dXw?e=grBCcB" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex d cci 10-k annual report december 31 2024">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex D</span>
+          <div>
+            <div class="text-sm font-semibold">CCI Annual Report on Form 10-K (Year Ended Dec 31, 2024)</div>
+            <div class="mt-0.5 text-xs text-slate-600">Annual financial statements and disclosures for CCI.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EcFhFB4GsUJJjWQaza8jROwBjttmWevYMRE71-zFtOybfQ" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex e cci 10-q quarterly report june 30 2025">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex E</span>
+          <div>
+            <div class="text-sm font-semibold">CCI Quarterly Report on Form 10-Q (Period Ended June 30, 2025)</div>
+            <div class="mt-0.5 text-xs text-slate-600">Quarterly financials and management analysis for CCI.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EWCz18cBlvFGr0fLN8jbrkQBmAW1nqZEXGRsDoTAVBytXw?e=slxbA6" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex f crop financial statements">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex F</span>
+          <div>
+            <div class="text-sm font-semibold">CROP Financial Statements</div>
+            <div class="mt-0.5 text-xs text-slate-600">Financial statements for CROP.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EXhbnF0WWzRAm36MFDfgBZoB0rxaLSBG1MGMhb9RToPE2A?e=1jxZEI" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex g rs financial statements rs financials">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex G</span>
+          <div>
+            <div class="text-sm font-semibold">RS Financial Statements</div>
+            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RealSource Properties, Inc.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EeFHPg56Ql1KrwMB7S0dmFEB18vHsSOC0NG13HVibZVCXw?e=CAGSHh" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex h rsop financial statements rsop financials">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex H</span>
+          <div>
+            <div class="text-sm font-semibold">RSOP Financial Statements</div>
+            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RealSource Properties OP, LP.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EQPAgbCS8LJOqJOlhFarvGkBDni9zGnAUSdtfy_8J_-0Xg?e=BxZIum" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex i md&a management discussion rs parties analysis operations mdna">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex I</span>
+          <div>
+            <div class="text-sm font-semibold">Management’s Discussion &amp; Analysis (RS Parties)</div>
+            <div class="mt-0.5 text-xs text-slate-600">MD&amp;A of financial condition and results of operations.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EaCKxKQ7GCZKmylS3_nzqe4BEh2cqBJror90MPjTfskmqw?e=fgZNRk" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex j rsm financial statements">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex J</span>
+          <div>
+            <div class="text-sm font-semibold">RSM Financial Statements</div>
+            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RSM.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EYMnSH36b6NPvXXzhY1LR4UBGdS8lTTrsu8hhMaM3kc7_A?e=yxprfT" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex k rs advisor financial statements advisor">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex K</span>
+          <div>
+            <div class="text-sm font-semibold">RS Advisor Financial Statements</div>
+            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RS Advisor.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EYKuW3QdhXtNmfm6XHk6rFMBF2W1UauTXuj67XDUXPhMkA?e=zZnHMQ" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex l rs property manager financial statements property manager">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex L</span>
+          <div>
+            <div class="text-sm font-semibold">RS Property Manager Financial Statements</div>
+            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RS Property Manager.</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://realsource451.sharepoint.com/:b:/g/EYjpsyTpHGxMuyFC3g33FEABNCScCIRMcjwTcLVS3pgOGg?e=n59jqA" target="_blank"
+         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
+         data-tags="annex m unaudited pro forma combined company partnership pro-forma">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex M</span>
+          <div>
+            <div class="text-sm font-semibold">Unaudited Pro Forma Financial Information — Combined Company &amp; Partnership</div>
+            <div class="mt-0.5 text-xs text-slate-600">Pro forma information for the combined entities.</div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Footer note -->
+    <section class="mt-6 text-[11px] text-slate-500">
+      This material is confidential and intended solely for the recipient in connection with evaluating the proposed transaction. Do not distribute without prior written consent.
+    </section>
+  </main>
+
+  <!-- ID Gate (checkbox ABOVE name) -->
   <div id="visit-gate" class="fixed inset-0 z-50 hidden">
     <div class="absolute inset-0 bg-slate-900/70"></div>
     <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
@@ -99,19 +260,16 @@
           (ii) waives any notice requirements under the governing documents of RS or RSOP, as applicable; and
           (iii) acknowledges that the documents on this website are confidential and proprietary and are being provided on a confidential basis solely to RS stockholders and RSOP limited partners as described in the Consent Solicitation Statement/PPM under the heading “Important Information and Notices.”
         </p>
-
         <form id="visit-gate-form" class="mt-3 space-y-4">
           <label class="flex items-start gap-2 text-sm text-slate-700">
             <input required type="checkbox" class="mt-0.5">
             <span>Acknowledged and agreed</span>
           </label>
-
           <div>
             <label class="block text-sm font-medium text-slate-700">Full Name</label>
             <input required name="name" type="text" autocomplete="name"
               class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
           </div>
-
           <button id="visit-gate-submit" type="submit"
             class="w-full rounded-lg bg-slate-900 text-white text-sm font-medium py-2.5 hover:bg-slate-800 disabled:opacity-60 flex items-center justify-center gap-2">
             Continue
@@ -122,28 +280,36 @@
     </div>
   </div>
 
-  <!-- Logger (same endpoint as LP; page=SH) -->
+  <!-- Interactions: filter + logging (JSONP) -->
   <script>
   (function () {
-    // Use the same Apps Script endpoint you provided for LP:
+    // Same Apps Script endpoint as LP (update if you redeploy Apps Script):
     const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwtwtmEYGQMkiDVVrNlqKI3AEJiQuDTxFAGNBkc0cbe1jhgw1MLo_e5QIvSDmDsFZGA5A/exec";
-
     const page = document.body.getAttribute('data-page') || 'Unknown';
     const STORAGE_KEY = `rs_gate_${page}`;
     const gate = document.getElementById('visit-gate');
-    const form = document.getElementById('visit-gate-form');
-    const submitBtn = document.getElementById('visit-gate-submit');
-    const errEl = document.getElementById('visit-gate-error');
 
-    function showGate() { gate.classList.remove('hidden'); }
-    function hideGate() { gate.classList.add('hidden'); }
-    try { if (!localStorage.getItem(STORAGE_KEY)) showGate(); } catch (_) { showGate(); }
+    // Show gate if not acknowledged on this browser
+    try { if (!localStorage.getItem(STORAGE_KEY)) gate.classList.remove('hidden'); } catch (_) { gate.classList.remove('hidden'); }
 
-    // Generic JSONP helper
+    // Filter
+    const filterInput = document.getElementById('filter');
+    const cards = Array.from(document.querySelectorAll('.doc-card'));
+    function applyFilter(q) {
+      const query = q.trim().toLowerCase();
+      cards.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+        const text = card.textContent.toLowerCase();
+        card.style.display = (!query || tags.includes(query) || text.includes(query)) ? '' : 'none';
+      });
+    }
+    filterInput.addEventListener('input', (e) => applyFilter(e.target.value));
+
+    // JSONP helper
     function jsonp(url, params, onDone, onError) {
-      const cbName = `cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+      const cbName = `cb_${Date.now()}_${Math.floor(Math.random()*1e6)}`;
       window[cbName] = function (resp) {
-        try { delete window[cbName]; } catch (_) {}
+        try { delete window[cbName]; } catch(_) {}
         if (script && script.parentNode) script.parentNode.removeChild(script);
         onDone(resp);
       };
@@ -152,25 +318,27 @@
       script.src = `${url}?${qs}`;
       script.async = true;
       script.onerror = function () {
-        try { delete window[cbName]; } catch (_) {}
+        try { delete window[cbName]; } catch(_) {}
         if (script && script.parentNode) script.parentNode.removeChild(script);
         onError(new Error('Network/JSONP error'));
       };
       document.head.appendChild(script);
     }
 
-    // Get visitor IP via ipify JSONP
+    // IP lookup
     function getVisitorIP(onDone, onError) {
       jsonp('https://api.ipify.org', { format: 'jsonp' }, function (resp) {
-        const ip = (resp && resp.ip) ? resp.ip : '';
-        onDone(ip);
+        onDone((resp && resp.ip) ? resp.ip : '');
       }, onError);
     }
 
-    // Log visit via Apps Script (JSONP)
-    function logVisit(params, onDone, onError) {
-      jsonp(LOG_ENDPOINT, params, onDone, onError);
-    }
+    // Log visit via Apps Script
+    function logVisit(params, onDone, onError) { jsonp(LOG_ENDPOINT, params, onDone, onError); }
+
+    // Gate form
+    const form = document.getElementById('visit-gate-form');
+    const submitBtn = document.getElementById('visit-gate-submit');
+    const errEl = document.getElementById('visit-gate-error');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -183,6 +351,7 @@
         return;
       }
 
+      // Spinner
       submitBtn.disabled = true;
       const originalHTML = submitBtn.innerHTML;
       submitBtn.innerHTML = `
@@ -195,12 +364,11 @@
       const ref = document.referrer || '';
       const ref_url = window.location.href;
 
-      // 1) get IP, then 2) log
       getVisitorIP(function (ip) {
-        const payload = { name, page, ua: navigator.userAgent || '', ref, ref_url, ip };
+        const payload = { name, page, ua: navigator.userAgent || '', ref, ref_url, ip: ip || '' };
         logVisit(payload, function () {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch (_) {}
-          hideGate();
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch(_) {}
+          gate.classList.add('hidden');
           submitBtn.innerHTML = originalHTML;
           submitBtn.disabled = false;
         }, function (err) {
@@ -210,11 +378,11 @@
           submitBtn.disabled = false;
         });
       }, function () {
-        // If IP service fails, still log
+        // If IP lookup fails, log anyway
         const payload = { name, page, ua: navigator.userAgent || '', ref, ref_url, ip: '' };
         logVisit(payload, function () {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch (_) {}
-          hideGate();
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch(_) {}
+          gate.classList.add('hidden');
           submitBtn.innerHTML = originalHTML;
           submitBtn.disabled = false;
         }, function (err) {
