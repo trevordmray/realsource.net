@@ -82,35 +82,24 @@
     <div class="absolute inset-0 bg-slate-900/70"></div>
     <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
       <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
-        <h2 class="text-lg font-semibold text-slate-900">Identify Yourself</h2>
-        <p class="text-sm text-slate-600 mt-1">
-          For compliance, please enter your name and acknowledge the following statements to proceed.
+        <h2 class="text-lg font-semibold text-slate-900 mb-2">Access Agreement</h2>
+        <p class="text-sm text-slate-600 mb-3">
+          By accessing the documents on this website, the undersigned hereby: 
+          (i) acknowledges that the undersigned has received notice of the solicitation of written consents in connection with the transactions described in the confidential consent solicitation statement/private placement memorandum dated November 12, 2025 (“Consent Solicitation Statement/PPM”), which has been prepared by RealSource Properties, Inc. (“RS”), RealSource Properties OP, LP (“RSOP”), Cottonwood Communities, Inc. and Cottonwood Residential O.P., LP; 
+          (ii) waives any notice requirements under the governing documents of RS or RSOP, as applicable; and 
+          (iii) acknowledges that the documents on this website are confidential and proprietary and are being provided on a confidential basis solely to RS stockholders and RSOP limited partners as described in the Consent Solicitation Statement/PPM under the heading “Important Information and Notices.”
         </p>
-        <form id="visit-gate-form" class="mt-4 space-y-3">
-          <label class="block">
-            <span class="text-sm text-slate-700">Full Name</span>
-            <input required name="name" type="text" autocomplete="name"
-              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
+
+        <form id="visit-gate-form" class="mt-3 space-y-4">
+          <label class="flex items-start gap-2 text-sm text-slate-700">
+            <input required type="checkbox" class="mt-0.5">
+            <span>Acknowledged and agreed</span>
           </label>
 
-          <div class="space-y-2 text-xs text-slate-600">
-            <label class="flex items-start gap-2">
-              <input required type="checkbox" class="mt-0.5">
-              <span>
-                I (LP) acknowledge that, by accessing the consent solicitation statement/PPM and the annexes in this dataroom,
-                I have received notice of the solicitation of consents.
-              </span>
-            </label>
-
-            <label class="flex items-start gap-2">
-              <input required type="checkbox" class="mt-0.5">
-              <span>
-                I (LP) waive any requirements with providing notice in a manner that does not comply with Section 16.1 of the
-                Limited Partnership Agreement of RealSource Properties OP, LP, which requires all communications required
-                or permitted under the Limited Partnership Agreement to be in writing and deemed to have been given when
-                delivered personally or upon deposit in the United States mail, registered, postage prepaid return receipt requested.
-              </span>
-            </label>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Full Name</label>
+            <input required name="name" type="text" autocomplete="name"
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
           </div>
 
           <button id="visit-gate-submit" type="submit"
@@ -119,19 +108,14 @@
           </button>
           <p id="visit-gate-error" class="text-xs text-red-600 hidden"></p>
         </form>
-        <p class="mt-3 text-[11px] text-slate-500">
-          We store only what’s necessary (name, time, page, browser info, and referrer). IP is captured server-side.
-        </p>
       </div>
     </div>
   </div>
 
-  <!-- Logger (JSONP + spinner + IP/referrer enhancements) -->
+  <!-- Logger -->
   <script>
   (function () {
-    // Update this when you redeploy Apps Script:
     const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwtwtmEYGQMkiDVVrNlqKI3AEJiQuDTxFAGNBkc0cbe1jhgw1MLo_e5QIvSDmDsFZGA5A/exec";
-
     const page = document.body.getAttribute('data-page') || 'Unknown';
     const STORAGE_KEY = `rs_gate_${page}`;
     const gate = document.getElementById('visit-gate');
@@ -141,10 +125,8 @@
 
     function showGate() { gate.classList.remove('hidden'); }
     function hideGate() { gate.classList.add('hidden'); }
-
     try { if (!localStorage.getItem(STORAGE_KEY)) showGate(); } catch (_) { showGate(); }
 
-    // Generic JSONP helper
     function jsonp(url, params, onDone, onError) {
       const cbName = `cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
       window[cbName] = function (resp) {
@@ -164,7 +146,6 @@
       document.head.appendChild(script);
     }
 
-    // Get visitor IP via ipify JSONP (no CORS)
     function getVisitorIP(onDone, onError) {
       jsonp('https://api.ipify.org', { format: 'jsonp' }, function (resp) {
         const ip = (resp && resp.ip) ? resp.ip : '';
@@ -172,7 +153,6 @@
       }, onError);
     }
 
-    // Log visit via Apps Script (JSONP)
     function logVisit(params, onDone, onError) {
       jsonp(LOG_ENDPOINT, params, onDone, onError);
     }
@@ -180,7 +160,6 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       errEl.classList.add('hidden');
-
       const name = (new FormData(form).get('name') || '').toString().trim();
       if (!name) {
         errEl.textContent = "Please enter your name.";
@@ -188,7 +167,6 @@
         return;
       }
 
-      // Disable + spinner
       submitBtn.disabled = true;
       const originalHTML = submitBtn.innerHTML;
       submitBtn.innerHTML = `
@@ -198,23 +176,13 @@
         </div>
       `;
 
-      // Prefer document.referrer, but also send page URL as fallback
       const ref = document.referrer || '';
       const ref_url = window.location.href;
 
-      // 1) Get IP, then 2) Log visit
       getVisitorIP(function (ip) {
-        const payload = {
-          name,
-          page,
-          ua: navigator.userAgent || '',
-          ref,          // may be empty depending on navigation/policy
-          ref_url,      // fallback: current page URL
-          ip: ip || ''  // client-sensed IP; server may also provide context.clientIp
-        };
-
+        const payload = { name, page, ua: navigator.userAgent || '', ref, ref_url, ip };
         logVisit(payload, function () {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch (_) {}
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() }));
           hideGate();
           submitBtn.innerHTML = originalHTML;
           submitBtn.disabled = false;
@@ -225,10 +193,9 @@
           submitBtn.disabled = false;
         });
       }, function () {
-        // If IP service fails, still log without IP
         const payload = { name, page, ua: navigator.userAgent || '', ref, ref_url, ip: '' };
         logVisit(payload, function () {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch (_) {}
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() }));
           hideGate();
           submitBtn.innerHTML = originalHTML;
           submitBtn.disabled = false;
