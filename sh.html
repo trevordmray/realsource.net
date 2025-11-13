@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light only">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Fixes scrolling bug when modal is open */
+    .modal-open {
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body class="bg-slate-100 text-slate-900" data-page="SH">
@@ -44,7 +50,7 @@
     <!-- Highlight: PPM -->
     <section class="mb-5">
       <a href="https://realsource451.sharepoint.com/:b:/g/EY94WlZnhx5LvXVBjtvihBwBGUSUucUh8nPSsB55Xk11Lw?e=TmfY3J"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
         <div class="flex items-start gap-3">
           <span class="inline-flex rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">PPM</span>
@@ -58,10 +64,9 @@
       </a>
     </section>
 
-    <!-- NEW: Written Consent for Stockholders -->
+    <!-- NEW: Written Consent for Stockholders [MODIFIED] -->
     <section class="mb-5">
-      <a href="https://realsource451.sharepoint.com/:b:/g/Eagf7WRd-NpCjA9svUtvbasBX-8PanG6FbFMDLOSPUnMMA?e=4jbW6r"
-         target="_blank"
+      <a href="#" id="open-consent-modal"
          class="doc-card block rounded-2xl border border-emerald-200 bg-emerald-50 p-4 sm:p-5 hover:bg-emerald-100 transition shadow-sm"
          data-tags="consent stockholder written consent vote sign execute rs stockholders">
         <div class="flex items-start gap-3">
@@ -71,17 +76,29 @@
               RealSource Properties, Inc. — Written Consent of the Stockholders
             </div>
             <div class="mt-0.5 text-xs text-slate-700">
-              Click to open the official Stockholder Written Consent form.
+              Click to electronically complete your Written Consent form.
             </div>
           </div>
         </div>
       </a>
+      
+      <!-- [NEW] Original PDF link -->
+      <div class="mt-2 text-center text-xs text-slate-600">
+        Alternatively, to print and sign manually, 
+        <a href="https://realsource451.sharepoint.com/:b:/g/Eagf7WRd-NpCjA9svUtvbasBX-8PanG6FbFMDLOSPUnMMA?e=4jbW6r"
+           target="_blank" rel="noopener noreferrer"
+           class="text-indigo-600 hover:underline">
+          click here for the original PDF version
+        </a>.
+      </div>
     </section>
 
-    <!-- Notice -->
-    <section class="mb-6">
+    <!-- [MODIFIED] Annexes List (Notice moved inside) -->
+    <section class="space-y-3" id="annex-list">
+
+      <!-- Notice [MOVED] -->
       <a href="https://realsource451.sharepoint.com/:b:/g/Eb1cbowaGr5JhD347gIg1iwBeoWPbWPJVmkc_Sn7YpQGOg?e=tmrxi1"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="notice stockholder solicitation written consent notice stockholders">
         <div class="flex items-start gap-3">
@@ -92,14 +109,10 @@
           </div>
         </div>
       </a>
-    </section>
-
-    <!-- Annexes -->
-    <section class="space-y-3" id="annex-list">
 
       <!-- Annex A-1 -->
       <a href="https://realsource451.sharepoint.com/:b:/g/Ebvg0PMEkbpLoQklLi-u3I8B4h3pIjSevso_SfWfGvNS6g?e=c4vLMT"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex a-1 agreement merger june 25 2025 plan of merger">
         <div class="flex items-start gap-3">
@@ -113,7 +126,7 @@
 
       <!-- Annex A-2 -->
       <a href="https://realsource451.sharepoint.com/:b:/g/Ead8yV4a6zhJiwJ_0P00e_sBKvqiyReHLww80h7A-ZlDbw?e=81sAur"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex a-2 amendment merger nov 12 2025">
         <div class="flex items-start gap-3">
@@ -127,7 +140,7 @@
 
       <!-- Annex B -->
       <a href="https://realsource451.sharepoint.com/:b:/g/Ee9-4d8k4JdNrLYmKbbjDyQBf28mrmHqbeDhamstbV7k7g?e=7oULix"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex b internalization management agreement">
         <div class="flex items-start gap-3">
@@ -141,7 +154,7 @@
 
       <!-- Annex C -->
       <a href="https://realsource451.sharepoint.com/:b:/g/ERjfGr_aZMhCub6eqZ9QrgEBHMDmcoaXBybup1o9SQ1HyA?e=LkqoSd"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex c advisor fairness opinion board financial opinion">
         <div class="flex items-start gap-3">
@@ -155,7 +168,7 @@
 
       <!-- Annex D -->
       <a href="https://realsource451.sharepoint.com/:b:/g/ESjJBHJga7tAgkmlVnorqrkB_S01FopoCcw3csQKig3dXw?e=grBCcB"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex d cci annual report 10-k december 31 2024">
         <div class="flex items-start gap-3">
@@ -169,7 +182,7 @@
 
       <!-- Annex E -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EcFhFB4GsUJJjWQaza8jROwBjttmWevYMRE71-zFtOybfQ"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex e cci quarterly report 10-q june 30 2025">
         <div class="flex items-start gap-3">
@@ -183,7 +196,7 @@
 
       <!-- Annex F -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EWCz18cBlvFGr0fLN8jbrkQBmAW1nqZEXGRsDoTAVBytXw?e=slxbA6"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex f crop financial statements">
         <div class="flex items-start gap-3">
@@ -197,7 +210,7 @@
 
       <!-- Annex G -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EXhbnF0WWzRAm36MFDfgBZoB0rxaLSBG1MGMhb9RToPE2A?e=1jxZEI"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex g rs financial statements rs inc">
         <div class="flex items-start gap-3">
@@ -211,7 +224,7 @@
 
       <!-- Annex H -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EeFHPg56Ql1KrwMB7S0dmFEB18vHsSOC0NG13HVibZVCXw?e=CAGSHh"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex h rsop financial statements rsop lp">
         <div class="flex items-start gap-3">
@@ -225,7 +238,7 @@
 
       <!-- Annex I -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EQPAgbCS8LJOqJOlhFarvGkBDni9zGnAUSdtfy_8J_-0Xg?e=BxZIum"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex i mdna md&a rs parties management discussion analysis">
         <div class="flex items-start gap-3">
@@ -239,7 +252,7 @@
 
       <!-- Annex J -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EaCKxKQ7GCZKmylS3_nzqe4BEh2cqBJror90MPjTfskmqw?e=fgZNRk"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex j rsm financial statements rsm">
         <div class="flex items-start gap-3">
@@ -253,7 +266,7 @@
 
       <!-- Annex K -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EYMnSH36b6NPvXXzhY1LR4UBGdS8lTTrsu8hhMaM3kc7_A?e=yxprfT"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex k advisor financial statements rs advisor">
         <div class="flex items-start gap-3">
@@ -267,7 +280,7 @@
 
       <!-- Annex L -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EYKuW3QdhXtNmfm6XHk6rFMBF2W1UauTXuj67XDUXPhMkA?e=zZnHMQ"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex l property manager financial statements rs property manager">
         <div class="flex items-start gap-3">
@@ -281,7 +294,7 @@
 
       <!-- Annex M -->
       <a href="https://realsource451.sharepoint.com/:b:/g/EYjpsyTpHGxMuyFC3g33FEABNCScCIRMcjwTcLVS3pgOGg?e=n59jqA"
-         target="_blank"
+         target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
          data-tags="annex m pro forma unaudited combined company partnership">
         <div class="flex items-start gap-3">
@@ -301,6 +314,47 @@
       Do not distribute without prior written consent.
     </section>
   </main>
+
+  <!-- [NEW] Consent Modal -->
+  <div id="consent-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-slate-900/70"></div>
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
+        <h2 class="text-lg font-semibold text-slate-900 mb-3">Complete Your Written Consent</h2>
+        
+        <p class="text-sm text-slate-600 mb-4">
+          Please select the option that applies to your investment. If you are unsure, please email
+          <a href="mailto:scottw@realsource.net" class="text-indigo-600 hover:underline">scottw@realsource.net</a>.
+        </p>
+        
+        <div class="space-y-3">
+          <!-- [NEW] Stockholder Link 1 -->
+          <a href="https://www.jotform.com/sign/253158325448057/invite/01k9xh573a3eaf861161afd984"
+             target="_blank" rel="noopener noreferrer"
+             class="consent-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 disabled:opacity-60 flex items-center justify-center gap-2">
+            One Signer Required
+          </a>
+          <!-- [NEW] Stockholder Link 2 (Same as Link 1, per user request) -->
+          <a href="https://www.jotform.com/sign/253158647604058/invite/01k9xh146x5d18bd41372b851e"
+             target="_blank" rel="noopener noreferrer"
+             class="consent-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 disabled:opacity-60 flex items-center justify-center gap-2">
+            Two Signers Required
+          </a>
+        </div>
+        
+        <!-- Jotform Disclaimer -->
+        <p class="text-xs text-slate-500 mt-4 text-center">
+          RealSource uses JotForm for electronic signatures. Their privacy policy can be found
+          <a href="https://www.jotform.com/privacy/#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">here</a>.
+        </p>
+        
+        <button id="close-consent-modal" type="button"
+          class="w-full rounded-lg bg-slate-100 text-slate-700 text-sm font-medium py-2.5 hover:bg-slate-200 disabled:opacity-60 flex items-center justify-center gap-2 mt-4">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ID Gate -->
   <div id="visit-gate" class="fixed inset-0 z-50 hidden">
@@ -340,41 +394,6 @@
     </div>
   </div>
 
-  <!-- Consent Info Modal -->
-  <div id="consent-info-modal" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-slate-900/70" aria-hidden="true"></div>
-    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
-      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
-
-        <h2 class="text-lg font-semibold text-slate-900 mb-2">How to Submit Your Consent</h2>
-
-        <p class="text-sm text-slate-600 mb-4">
-          We are implementing an electronic signature solution, which will be available in the next 24 hours.
-        </p>
-        <p class="text-sm text-slate-600 mb-4">
-          For now, you are welcome to view the PDF. If you wish to submit it immediately, please:
-        </p>
-        <ul class="list-decimal list-inside text-sm text-slate-600 mb-5 space-y-1">
-          <li>Open and print the PDF.</li>
-          <li>Sign the printed form.</li>
-          <li>Email a scanned copy to: <br><strong>scottw@realsource.net</strong></li>
-        </ul>
-
-        <div class="flex flex-col sm:flex-row-reverse gap-3">
-          <button id="consent-continue-btn" type="button"
-            class="w-full sm:w-auto rounded-lg bg-slate-900 text-white text-sm font-medium py-2.5 px-4 hover:bg-slate-800">
-            Continue to PDF
-          </button>
-          <button id="consent-cancel-btn" type="button"
-            class="w-full sm:w-auto rounded-lg border border-slate-300 bg-white text-slate-800 text-sm font-medium py-2.5 px-4 hover:bg-slate-50">
-            Cancel
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
   <!-- Filter + Logging -->
   <script>
   (function () {
@@ -383,30 +402,17 @@
     const page = document.body.getAttribute('data-page') || 'SH';
     const STORAGE_KEY = `rs_gate_${page}`;
     const gate = document.getElementById('visit-gate');
-
-    // --- START: MODAL HELPER FUNCTIONS ---
-    function showModal(modalElement) {
-      if (modalElement) {
-        modalElement.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function hideModal(modalElement) {
-      if (modalElement) {
-        modalElement.classList.add('hidden');
-        document.body.style.overflow = '';
-      }
-    }
-    // --- END: MODAL HELPER FUNCTIONS ---
+    const body = document.body; // [NEW] Get body element
 
     try { 
       if (!localStorage.getItem(STORAGE_KEY)) {
-        showModal(gate); // Use helper function
+        gate.classList.remove('hidden');
+        body.classList.add('modal-open'); // [NEW] Fix scroll bug
       }
     }
     catch (_) { 
-      showModal(gate); // Use helper function
+      gate.classList.remove('hidden');
+      body.classList.add('modal-open'); // [NEW] Fix scroll bug
     }
 
     // Filter
@@ -420,43 +426,6 @@
         card.style.display = (!q || tags.includes(q) || text.includes(q)) ? '' : 'none';
       });
     });
-
-    // --- START: NEW MODAL LOGIC ---
-
-    // Find the link for the Written Consent
-    const consentLink = document.querySelector('a[data-tags*="consent stockholder written consent"]');
-    // Find the new modal
-    const consentModal = document.getElementById('consent-info-modal');
-    
-    // Only run if both the link and modal exist on the page
-    if (consentLink && consentModal) {
-      const consentContinueBtn = document.getElementById('consent-continue-btn');
-      const consentCancelBtn = document.getElementById('consent-cancel-btn');
-
-      // 1. When the "Written Consent" link is clicked:
-      consentLink.addEventListener('click', function(e) {
-        // Stop the link from opening immediately
-        e.preventDefault();
-        // Show the info modal
-        showModal(consentModal); // Use helper function
-      });
-
-      // 2. If user clicks "Continue to PDF":
-      consentContinueBtn.addEventListener('click', function() {
-        // Hide the modal
-        hideModal(consentModal); // Use helper function
-        // Manually open the PDF link in a new tab (which was the original action)
-        window.open(consentLink.href, '_blank');
-      });
-
-      // 3. If user clicks "Cancel":
-      consentCancelBtn.addEventListener('click', function() {
-        // Just hide the modal
-        hideModal(consentModal); // Use helper function
-      });
-    }
-
-    // --- END: NEW MODAL LOGIC ---
 
     // JSONP
     function jsonp(url, params, ok, errFn) {
@@ -519,7 +488,8 @@
 
         logVisit(payload, () => {
           try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name, ts: Date.now()})); } catch(_){}
-          hideModal(gate); // Use helper function
+          body.classList.remove('modal-open'); // [NEW] Fix scroll bug
+          gate.classList.add('hidden');
           submit.innerHTML = original;
           submit.disabled = false;
         }, errMsg => {
@@ -533,7 +503,8 @@
         const payload = {name, page, ua: navigator.userAgent, ref, ref_url, ip: ""};
         logVisit(payload, () => {
           try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name, ts: Date.now()})); } catch(_){}
-          hideModal(gate); // Use helper function
+          body.classList.remove('modal-open'); // [NEW] Fix scroll bug
+          gate.classList.add('hidden');
           submit.innerHTML = original;
           submit.disabled = false;
         }, errMsg => {
@@ -545,6 +516,42 @@
       });
 
     });
+    
+    // [NEW] Consent Modal Logic
+    const consentModal = document.getElementById('consent-modal');
+    const openConsentBtn = document.getElementById('open-consent-modal');
+    const closeConsentBtn = document.getElementById('close-consent-modal');
+    const consentLinks = document.querySelectorAll('.consent-link');
+    
+    if (openConsentBtn) {
+      openConsentBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        consentModal.classList.remove('hidden');
+        body.classList.add('modal-open');
+      });
+    }
+    
+    function closeConsent() {
+      consentModal.classList.add('hidden');
+      // Only remove modal-open if the gate isn't also open
+      if (gate.classList.contains('hidden')) {
+        body.classList.remove('modal-open');
+      }
+    }
+
+    if (closeConsentBtn) closeConsentBtn.addEventListener('click', closeConsent);
+    consentLinks.forEach(link => link.addEventListener('click', closeConsent));
+    
+    // Close on overlay click
+    if (consentModal) {
+      consentModal.addEventListener('click', function(e) {
+        // e.target is the element that was clicked.
+        // We only close if the click was on the modal container itself (the overlay).
+        if (e.target === consentModal) {
+          closeConsent();
+        }
+      });
+    }
 
   })();
   </script>
