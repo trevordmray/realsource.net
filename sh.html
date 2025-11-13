@@ -384,8 +384,30 @@
     const STORAGE_KEY = `rs_gate_${page}`;
     const gate = document.getElementById('visit-gate');
 
-    try { if (!localStorage.getItem(STORAGE_KEY)) gate.classList.remove('hidden'); }
-    catch (_) { gate.classList.remove('hidden'); }
+    // --- START: MODAL HELPER FUNCTIONS ---
+    function showModal(modalElement) {
+      if (modalElement) {
+        modalElement.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function hideModal(modalElement) {
+      if (modalElement) {
+        modalElement.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+    // --- END: MODAL HELPER FUNCTIONS ---
+
+    try { 
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        showModal(gate); // Use helper function
+      }
+    }
+    catch (_) { 
+      showModal(gate); // Use helper function
+    }
 
     // Filter
     const filterInput = document.getElementById('filter');
@@ -416,13 +438,13 @@
         // Stop the link from opening immediately
         e.preventDefault();
         // Show the info modal
-        consentModal.classList.remove('hidden');
+        showModal(consentModal); // Use helper function
       });
 
       // 2. If user clicks "Continue to PDF":
       consentContinueBtn.addEventListener('click', function() {
         // Hide the modal
-        consentModal.classList.add('hidden');
+        hideModal(consentModal); // Use helper function
         // Manually open the PDF link in a new tab (which was the original action)
         window.open(consentLink.href, '_blank');
       });
@@ -430,7 +452,7 @@
       // 3. If user clicks "Cancel":
       consentCancelBtn.addEventListener('click', function() {
         // Just hide the modal
-        consentModal.classList.add('hidden');
+        hideModal(consentModal); // Use helper function
       });
     }
 
@@ -497,7 +519,7 @@
 
         logVisit(payload, () => {
           try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name, ts: Date.now()})); } catch(_){}
-          gate.classList.add('hidden');
+          hideModal(gate); // Use helper function
           submit.innerHTML = original;
           submit.disabled = false;
         }, errMsg => {
@@ -511,7 +533,7 @@
         const payload = {name, page, ua: navigator.userAgent, ref, ref_url, ip: ""};
         logVisit(payload, () => {
           try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name, ts: Date.now()})); } catch(_){}
-          gate.classList.add('hidden');
+          hideModal(gate); // Use helper function
           submit.innerHTML = original;
           submit.disabled = false;
         }, errMsg => {
