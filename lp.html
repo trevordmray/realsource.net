@@ -339,6 +339,41 @@
     </div>
   </div>
 
+  <!-- Consent Info Modal -->
+  <div id="consent-info-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-slate-900/70" aria-hidden="true"></div>
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
+
+        <h2 class="text-lg font-semibold text-slate-900 mb-2">How to Submit Your Consent</h2>
+
+        <p class="text-sm text-slate-600 mb-4">
+          We are implementing an electronic signature solution, which will be available in the next 24 hours.
+        </p>
+        <p class="text-sm text-slate-600 mb-4">
+          For now, you are welcome to view the PDF. If you wish to submit it immediately, please:
+        </p>
+        <ul class="list-decimal list-inside text-sm text-slate-600 mb-5 space-y-1">
+          <li>Open and print the PDF.</li>
+          <li>Sign the printed form.</li>
+          <li>Email a scanned copy to: <br><strong>scottw@realsource.net</strong></li>
+        </ul>
+
+        <div class="flex flex-col sm:flex-row-reverse gap-3">
+          <button id="consent-continue-btn" type="button"
+            class="w-full sm:w-auto rounded-lg bg-slate-900 text-white text-sm font-medium py-2.5 px-4 hover:bg-slate-800">
+            Continue to PDF
+          </button>
+          <button id="consent-cancel-btn" type="button"
+            class="w-full sm:w-auto rounded-lg border border-slate-300 bg-white text-slate-800 text-sm font-medium py-2.5 px-4 hover:bg-slate-50">
+            Cancel
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Filter + Logging -->
   <script>
   (function () {
@@ -362,6 +397,44 @@
         card.style.display = (!q || tags.includes(q) || text.includes(q)) ? '' : 'none';
       });
     });
+
+    // --- START: NEW MODAL LOGIC ---
+
+    // Find the link for the Written Consent
+    const consentLink = document.querySelector('a[data-tags*="consent written consent"]');
+    // Find the new modal
+    const consentModal = document.getElementById('consent-info-modal');
+    
+    // Only run if both the link and modal exist on the page
+    if (consentLink && consentModal) {
+      const consentContinueBtn = document.getElementById('consent-continue-btn');
+      const consentCancelBtn = document.getElementById('consent-cancel-btn');
+
+      // 1. When the "Written Consent" link is clicked:
+      consentLink.addEventListener('click', function(e) {
+        // Stop the link from opening immediately
+        e.preventDefault();
+        // Show the info modal
+        consentModal.classList.remove('hidden');
+      });
+
+      // 2. If user clicks "Continue to PDF":
+      consentContinueBtn.addEventListener('click', function() {
+        // Hide the modal
+        consentModal.classList.add('hidden');
+        // Manually open the PDF link in a new tab (which was the original action)
+        window.open(consentLink.href, '_blank');
+      });
+
+      // 3. If user clicks "Cancel":
+      consentCancelBtn.addEventListener('click', function() {
+        // Just hide the modal
+        consentModal.classList.add('hidden');
+      });
+    }
+
+    // --- END: NEW MODAL LOGIC ---
+
 
     // JSONP
     function jsonp(url, params, onDone, onError) {
