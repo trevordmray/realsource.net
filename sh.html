@@ -7,10 +7,8 @@
   <meta name="color-scheme" content="light only">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Fixes scrolling bug when modal is open */
-    .modal-open {
-      overflow: hidden;
-    }
+    /* Prevent body scroll when modals are open */
+    .modal-open { overflow: hidden; }
   </style>
 </head>
 
@@ -21,13 +19,14 @@
     <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
       <div class="shrink-0 rounded-xl bg-slate-900 text-white px-2.5 py-1 text-xs font-semibold">SH</div>
       <h1 class="text-sm sm:text-base font-semibold">RealSource Properties • Stockholder Dataroom</h1>
-      <div class="ml-auto text-[11px] text-slate-500 hidden sm:block">Last updated: 11/12/2025</div>
+      <!-- Updated Date -->
+      <div class="ml-auto text-[11px] text-slate-500 hidden sm:block">Last updated: 11/18/2025</div>
     </div>
   </header>
 
   <main class="mx-auto max-w-3xl px-4 py-6">
 
-    <!-- Search -->
+    <!-- Search Section -->
     <section class="mb-4">
       <div class="rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -37,34 +36,15 @@
                    placeholder="Search documents (e.g., Annex B, 10-K, 10-Q, MD&A, Pro Forma)"
                    class="w-full rounded-lg border border-slate-300 px-3 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
             <svg class="pointer-events-none absolute right-2 top-2.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="none">
-              <path stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"
-                    d="m21 21-4.3-4.3M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
             </svg>
           </div>
           <div class="text-[11px] text-slate-500">Tip: type a letter (A–M), “10-K”, “10-Q”, “MD&A”, or “Pro Forma”.</div>
         </div>
       </div>
     </section>
-
-    <!-- Highlight: PPM -->
-    <section class="mb-5">
-      <a href="https://realsource451.sharepoint.com/:b:/g/EY94WlZnhx5LvXVBjtvihBwBGUSUucUh8nPSsB55Xk11Lw?e=TmfY3J"
-         target="_blank" rel="noopener noreferrer"
-         class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">PPM</span>
-          <div>
-            <div class="text-sm sm:text-base font-semibold text-slate-900">
-              Consent Solicitation Statement / Private Placement Memorandum (Nov 12, 2025)
-            </div>
-            <div class="mt-0.5 text-xs text-slate-700">Primary disclosure document covering the proposed transactions.</div>
-          </div>
-        </div>
-      </a>
-    </section>
-
-    <!-- NEW: Written Consent for Stockholders [MODIFIED] -->
+    
+    <!-- Action Item: Written Consent (NOW ON TOP) -->
     <section class="mb-5">
       <a href="#" id="open-consent-modal"
          class="doc-card block rounded-2xl border border-emerald-200 bg-emerald-50 p-4 sm:p-5 hover:bg-emerald-100 transition shadow-sm"
@@ -82,7 +62,7 @@
         </div>
       </a>
       
-      <!-- [NEW] Original PDF link -->
+      <!-- PDF Alternative Link -->
       <div class="mt-2 text-center text-xs text-slate-600">
         <span class="font-bold">Alternatively, to print and sign manually,</span>
         <a href="https://realsource451.sharepoint.com/:b:/g/Eagf7WRd-NpCjA9svUtvbasBX-8PanG6FbFMDLOSPUnMMA?e=4jbW6r"
@@ -93,10 +73,72 @@
       </div>
     </section>
 
-    <!-- [MODIFIED] Annexes List (Notice moved inside) -->
+    <!-- Primary Documents: PPM & Supplement (Blue) -->
+    <section class="mb-5 space-y-3">
+      
+      <!-- Main PPM -->
+      <a href="https://realsource451.sharepoint.com/:b:/g/EY94WlZnhx5LvXVBjtvihBwBGUSUucUh8nPSsB55Xk11Lw?e=TmfY3J"
+         target="_blank" rel="noopener noreferrer"
+         class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">PPM</span>
+          <div>
+            <div class="text-sm sm:text-base font-semibold text-slate-900">Consent Solicitation Statement / Private Placement Memorandum (Nov 12, 2025)</div>
+            <div class="mt-0.5 text-xs text-slate-700">Primary disclosure document covering the proposed transactions.</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- PPM Supplement No. 1 (NEW) -->
+      <a href="https://realsource451.sharepoint.com/:b:/g/EbLhYnTlRTpEjCIN95Gx4JMBQ7xgFSdQw4a08cLLpBZXNg?e=uI1zwd"
+         target="_blank" rel="noopener noreferrer"
+         class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">Supp. 1</span>
+          <div>
+            <div class="text-sm sm:text-base font-semibold text-slate-900">PPM Supplement No. 1 (Nov 17, 2025)</div>
+            <div class="mt-0.5 text-xs text-slate-700">Supplemental information to the PPM.</div>
+          </div>
+        </div>
+      </a>
+      
+    </section>
+
+    <!-- Summary Documents (Yellow/Gold - NEW) -->
+    <section class="mb-5 grid gap-3 sm:grid-cols-2">
+      <!-- Merger Summary -->
+      <a href="https://realsource451.sharepoint.com/:b:/g/EV9jzEbxhStLncDXpxUa21UBOMQWHmhK0_2voiF7AYZuPw?e=6WBIse"
+         target="_blank" rel="noopener noreferrer"
+         class="doc-card block rounded-2xl border border-amber-200 bg-amber-50 p-4 hover:bg-amber-100 transition shadow-sm"
+         data-tags="merger summary new summary gold">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-amber-500 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wide">New</span>
+          <div>
+            <div class="text-sm font-semibold text-slate-900">Merger Summary</div>
+            <div class="mt-0.5 text-xs text-slate-700">Overview of the merger details.</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Merger Presentation -->
+      <a href="https://realsource451.sharepoint.com/:b:/g/EeiKHeibpqpFsVL1a60clvgBzH6_9-VjfqiSKoZ6QxObKw"
+         target="_blank" rel="noopener noreferrer"
+         class="doc-card block rounded-2xl border border-amber-200 bg-amber-50 p-4 hover:bg-amber-100 transition shadow-sm"
+         data-tags="merger presentation powerpoint deck new summary gold">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex rounded-md bg-amber-500 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wide">New</span>
+          <div>
+            <div class="text-sm font-semibold text-slate-900">Merger Presentation</div>
+            <div class="mt-0.5 text-xs text-slate-700">PowerPoint presentation deck.</div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Notice & Annexes List -->
     <section class="space-y-3" id="annex-list">
 
-      <!-- Notice [MOVED] -->
+      <!-- Notice -->
       <a href="https://realsource451.sharepoint.com/:b:/g/Eb1cbowaGr5JhD347gIg1iwBeoWPbWPJVmkc_Sn7YpQGOg?e=tmrxi1"
          target="_blank" rel="noopener noreferrer"
          class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
@@ -315,13 +357,11 @@
     </section>
   </main>
 
-  <!-- [NEW] Consent Modal -->
-  <!-- MODIFIED: Added overflow-y-auto -->
+  <!-- Consent Modal -->
   <div id="consent-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
-    <!-- MODIFIED: Changed absolute to fixed -->
-    <div class="fixed inset-0 bg-slate-900/70"></div>
-    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
-      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
+    <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="document.getElementById('close-consent-modal').click()"></div>
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4 pointer-events-none">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 pointer-events-auto">
         <h2 class="text-lg font-semibold text-slate-900 mb-3">Complete Your Written Consent</h2>
         
         <p class="text-sm text-slate-600 mb-4">
@@ -330,13 +370,13 @@
         </p>
         
         <div class="space-y-3">
-          <!-- [NEW] Stockholder Link 1 -->
+          <!-- Stockholder Link 1 -->
           <a href="https://www.jotform.com/sign/253158325448057/invite/01k9xh573a3eaf861161afd984"
              target="_blank" rel="noopener noreferrer"
              class="consent-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 disabled:opacity-60 flex items-center justify-center gap-2">
             One Signer Required
           </a>
-          <!-- [NEW] Stockholder Link 2 (Same as Link 1, per user request) -->
+          <!-- Stockholder Link 2 -->
           <a href="https://www.jotform.com/sign/253158647604058/invite/01k9xh146x5d18bd41372b851e"
              target="_blank" rel="noopener noreferrer"
              class="consent-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 disabled:opacity-60 flex items-center justify-center gap-2">
@@ -351,18 +391,17 @@
         </p>
         
         <button id="close-consent-modal" type="button"
-          class="w-full rounded-lg bg-slate-100 text-slate-700 text-sm font-medium py-2.5 hover:bg-slate-200 disabled:opacity-60 flex items-center justify-center gap-2 mt-4">
+          class="w-full rounded-lg bg-slate-100 text-slate-700 text-sm font-medium py-2.5 hover:bg-slate-200 flex items-center justify-center gap-2 mt-4">
           Cancel
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ID Gate -->
-  <!-- MODIFIED: Added overflow-y-auto -->
+  <!-- Access Gate / Visit Gate -->
+  <!-- Note: Legal language in this section must be preserved exactly. -->
   <div id="visit-gate" class="fixed inset-0 z-50 hidden overflow-y-auto">
-    <!-- MODIFIED: Changed absolute to fixed -->
-    <div class="fixed inset-0 bg-slate-900/70"></div>
+    <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
     <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
       <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
 
@@ -376,19 +415,18 @@
         </p>
 
         <form id="visit-gate-form" class="mt-3 space-y-4">
-          <label class="flex items-start gap-2 text-sm text-slate-700">
-            <input required type="checkbox" class="mt-0.5">
+          <label class="flex items-start gap-2 text-sm text-slate-700 cursor-pointer">
+            <input required type="checkbox" class="mt-0.5 accent-slate-900">
             <span>Acknowledged and agreed</span>
           </label>
-
           <div>
             <label class="block text-sm font-medium text-slate-700">Full Name</label>
             <input required name="name" type="text" autocomplete="name"
-                   class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
           </div>
 
           <button id="visit-gate-submit" type="submit"
-                  class="w-full rounded-lg bg-slate-900 text-white text-sm font-medium py-2.5 hover:bg-slate-800 disabled:opacity-60 flex items-center justify-center gap-2">
+            class="w-full rounded-lg bg-slate-900 text-white text-sm font-medium py-2.5 hover:bg-slate-800 disabled:opacity-60 flex items-center justify-center gap-2">
             Continue
           </button>
 
@@ -398,167 +436,223 @@
     </div>
   </div>
 
-  <!-- Filter + Logging -->
+  <!-- Logic -->
   <script>
   (function () {
-
+    
+    // --- Configuration ---
     const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwtwtmEYGQMkiDVVrNlqKI3AEJiQuDTxFAGNBkc0cbe1jhgw1MLo_e5QIvSDmDsFZGA5A/exec";
-    const page = document.body.getAttribute('data-page') || 'SH';
-    const STORAGE_KEY = `rs_gate_${page}`;
-    const gate = document.getElementById('visit-gate');
-    const body = document.body; // [NEW] Get body element
+    const PAGE_ID = document.body.getAttribute('data-page') || 'SH'; // SH Dataroom
+    const STORAGE_KEY = `rs_gate_${PAGE_ID}`;
 
-    try { 
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        gate.classList.remove('hidden');
-        body.classList.add('modal-open'); // [NEW] Fix scroll bug
+    // --- DOM Elements ---
+    const els = {
+      body: document.body,
+      filterInput: document.getElementById('filter'),
+      cards: Array.from(document.querySelectorAll('.doc-card')),
+      
+      // Gate Elements
+      gate: document.getElementById('visit-gate'),
+      gateForm: document.getElementById('visit-gate-form'),
+      gateSubmit: document.getElementById('visit-gate-submit'),
+      gateError: document.getElementById('visit-gate-error'),
+      
+      // Consent Modal Elements
+      consentModal: document.getElementById('consent-modal'),
+      openConsentBtn: document.getElementById('open-consent-modal'),
+      closeConsentBtn: document.getElementById('close-consent-modal'),
+      consentLinks: document.querySelectorAll('.consent-link')
+    };
+
+    // --- Utilities ---
+
+    /**
+     * Checks gate status and shows it if necessary.
+     * Returns true if gate is open (user has access), false otherwise.
+     */
+    function checkGate() {
+      try {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          toggleModal(els.gate, true);
+          return false;
+        }
+        return true;
+      } catch (e) {
+        // LocalStorage access denied or error
+        toggleModal(els.gate, true);
+        return false;
       }
     }
-    catch (_) { 
-      gate.classList.remove('hidden');
-      body.classList.add('modal-open'); // [NEW] Fix scroll bug
-    }
 
-    // Filter
-    const filterInput = document.getElementById('filter');
-    const cards = Array.from(document.querySelectorAll('.doc-card'));
-    filterInput.addEventListener('input', (e) => {
-      const q = e.target.value.trim().toLowerCase();
-      cards.forEach(card => {
-        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-        const text = card.textContent.toLowerCase();
-        card.style.display = (!q || tags.includes(q) || text.includes(q)) ? '' : 'none';
-      });
-    });
-
-    // JSONP
-    function jsonp(url, params, ok, errFn) {
-      const cb = `cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
-      window[cb] = function(resp) {
-        try { delete window[cb]; } catch (_) {}
-        script.remove();
-        ok(resp);
-      };
-      const qs = new URLSearchParams({...params, callback: cb}).toString();
-      const script = document.createElement('script');
-      script.src = `${url}?${qs}`;
-      script.async = true;
-      script.onerror = () => {
-        try { delete window[cb]; } catch (_) {}
-        script.remove();
-        errFn(new Error("Network/JSONP error"));
-      };
-      document.head.appendChild(script);
-    }
-
-    function getIP(done, fail) {
-      jsonp("https://api.ipify.org", {format: "jsonp"}, r => done(r?.ip || ""), fail);
-    }
-
-    function logVisit(p, ok, fail) {
-      jsonp(LOG_ENDPOINT, p, ok, fail);
-    }
-
-    // Gate form
-    const form = document.getElementById('visit-gate-form');
-    const submit = document.getElementById('visit-gate-submit');
-    const err = document.getElementById('visit-gate-error');
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      err.classList.add('hidden');
-
-      const name = (new FormData(form).get('name') || '').trim();
-      if (!name) {
-        err.textContent = "Please enter your name.";
-        err.classList.remove('hidden');
-        return;
+    /**
+     * Toggles a modal's visibility and handles body scroll locking.
+     */
+    function toggleModal(modal, show) {
+      if (!modal) return;
+      
+      if (show) {
+        modal.classList.remove('hidden');
+        els.body.classList.add('modal-open');
+      } else {
+        modal.classList.add('hidden');
+        // Only remove scroll lock if NO other modals are open
+        const otherOpen = document.querySelectorAll('.fixed:not(.hidden).z-50');
+        if (otherOpen.length === 0) {
+          els.body.classList.remove('modal-open');
+        }
       }
+    }
 
-      submit.disabled = true;
-      const original = submit.innerHTML;
-      submit.innerHTML = `
-        <div class="flex items-center gap-2">
-          <div class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-          <span>Logging...</span>
-        </div>`;
+    /**
+     * Promise-based JSONP implementation with TIMEOUT support.
+     * If the script doesn't respond within `timeout` ms, the promise rejects.
+     */
+    function jsonpAsync(url, params = {}, timeout = 15000) { // Default timeout 15s (Secure Fail-Closed)
+      return new Promise((resolve, reject) => {
+        const cbName = `cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+        const script = document.createElement('script');
+        let timer = null;
+        
+        // Cleanup helper
+        const cleanup = () => {
+          if (timer) clearTimeout(timer);
+          // Safe cleanup - set to no-op in case it comes late
+          window[cbName] = () => {}; 
+          try { delete window[cbName]; } catch(e) {}
+          if (script.parentNode) script.parentNode.removeChild(script);
+        };
 
-      const ref = document.referrer || "";
-      const ref_url = window.location.href;
+        // Success Callback
+        window[cbName] = (response) => {
+          cleanup();
+          resolve(response);
+        };
 
-      getIP(ip => {
+        // Error Handling (Network error / CORB blocking)
+        script.onerror = () => {
+          cleanup();
+          reject(new Error('Network error'));
+        };
 
-        const payload = {name, page, ua: navigator.userAgent, ref, ref_url, ip};
+        // Timeout Handling
+        timer = setTimeout(() => {
+          cleanup();
+          reject(new Error('Timeout'));
+        }, timeout);
 
-        logVisit(payload, () => {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name, ts: Date.now()})); } catch(_){}
-          body.classList.remove('modal-open'); // [NEW] Fix scroll bug
-          gate.classList.add('hidden');
-          submit.innerHTML = original;
-          submit.disabled = false;
-        }, errMsg => {
-          err.textContent = `Could not record your visit. (${errMsg})`;
-          err.classList.remove('hidden');
-          submit.innerHTML = original;
-          submit.disabled = false;
-        });
+        // Construct URL
+        const searchParams = new URLSearchParams({ ...params, callback: cbName });
+        script.src = `${url}?${searchParams.toString()}`;
+        script.async = true;
+        document.head.appendChild(script);
+      });
+    }
 
-      }, () => {
-        const payload = {name, page, ua: navigator.userAgent, ref, ref_url, ip: ""};
-        logVisit(payload, () => {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name, ts: Date.now()})); } catch(_){}
-          body.classList.remove('modal-open'); // [NEW] Fix scroll bug
-          gate.classList.add('hidden');
-          submit.innerHTML = original;
-          submit.disabled = false;
-        }, errMsg => {
-          err.textContent = `Could not record your visit. (${errMsg})`;
-          err.classList.remove('hidden');
-          submit.innerHTML = original;
-          submit.disabled = false;
+    // --- Initialization & Event Listeners ---
+
+    // 1. Initialize Gate
+    checkGate();
+
+    // 2. Filter Logic
+    if (els.filterInput) {
+      els.filterInput.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        els.cards.forEach(card => {
+          const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+          const text = card.textContent.toLowerCase();
+          const isMatch = !q || tags.includes(q) || text.includes(q);
+          card.style.display = isMatch ? '' : 'none';
         });
       });
+    }
 
-    });
-    
-    // [NEW] Consent Modal Logic
-    const consentModal = document.getElementById('consent-modal');
-    const openConsentBtn = document.getElementById('open-consent-modal');
-    const closeConsentBtn = document.getElementById('close-consent-modal');
-    const consentLinks = document.querySelectorAll('.consent-link');
-    
-    if (openConsentBtn) {
-      openConsentBtn.addEventListener('click', function(e) {
+    // 3. Consent Modal Logic
+    if (els.openConsentBtn) {
+      els.openConsentBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        consentModal.classList.remove('hidden');
-        body.classList.add('modal-open');
+        toggleModal(els.consentModal, true);
       });
     }
     
-    function closeConsent() {
-      consentModal.classList.add('hidden');
-      // Only remove modal-open if the gate isn't also open
-      if (gate.classList.contains('hidden')) {
-        body.classList.remove('modal-open');
-      }
+    if (els.closeConsentBtn) {
+      els.closeConsentBtn.addEventListener('click', () => toggleModal(els.consentModal, false));
     }
-
-    if (closeConsentBtn) closeConsentBtn.addEventListener('click', closeConsent);
-    consentLinks.forEach(link => link.addEventListener('click', closeConsent));
     
-    // Close on overlay click
-    if (consentModal) {
-      consentModal.addEventListener('click', function(e) {
-        // e.target is the element that was clicked.
-        // We only close if the click was on the modal container itself (the overlay).
-        if (e.target === consentModal) {
-          closeConsent();
+    els.consentLinks.forEach(link => {
+      link.addEventListener('click', () => toggleModal(els.consentModal, false));
+    });
+
+    // 4. Gate Form Submission
+    if (els.gateForm) {
+      els.gateForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        
+        // Validation
+        const formData = new FormData(els.gateForm);
+        const name = (formData.get('name') || '').toString().trim();
+        
+        els.gateError.classList.add('hidden');
+        if (!name) {
+          els.gateError.textContent = "Please enter your name.";
+          els.gateError.classList.remove('hidden');
+          return;
+        }
+
+        // UI Loading State
+        els.gateSubmit.disabled = true;
+        const originalBtnContent = els.gateSubmit.innerHTML;
+        els.gateSubmit.innerHTML = `
+          <div class="flex items-center gap-2">
+            <div class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <span>Logging...</span>
+          </div>`;
+
+        try {
+          // 1. Get IP (attempt only, short timeout)
+          let ip = "";
+          try {
+            // Short 2s timeout for IP, if it fails, just move on
+            const ipData = await jsonpAsync("https://api.ipify.org", { format: "jsonp" }, 2000);
+            ip = ipData?.ip || "";
+          } catch (err) {
+            console.warn("Client IP fetch failed, relying on server IP.");
+          }
+
+          // 2. Log Visit - FAIL CLOSED (Security Requirement)
+          const payload = {
+            name,
+            page: PAGE_ID,
+            ua: navigator.userAgent,
+            ref: document.referrer || "",
+            ref_url: window.location.href,
+            ip
+          };
+
+          // Await the log. If it fails (timeout/error), access is denied.
+          await jsonpAsync(LOG_ENDPOINT, payload, 15000);
+
+          // 3. Success (Only reached if above succeeds)
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() }));
+          } catch (_) {} 
+
+          toggleModal(els.gate, false);
+
+        } catch (err) {
+          // 4. FAIL CLOSED - Access Denied
+          console.error("Logging failed (Fail Closed):", err);
+          els.gateError.innerHTML = "Security Check Failed.<br>Unable to verify connection. Please disable ad-blockers or try a different network.";
+          els.gateError.classList.remove('hidden');
+          // Do NOT close the modal.
+        } finally {
+          // Reset Button
+          els.gateSubmit.innerHTML = originalBtnContent;
+          els.gateSubmit.disabled = false;
         }
       });
     }
 
   })();
   </script>
-
 </body>
 </html>
