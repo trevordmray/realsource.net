@@ -9,351 +9,377 @@
   <style>
     /* Prevent body scroll when modals are open */
     .modal-open { overflow: hidden; }
+    
+    /* Custom Scrollbar for inner content if needed */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
   </style>
 </head>
 
-<body class="bg-slate-100 text-slate-900" data-page="LP">
+<body class="bg-slate-50 text-slate-900" data-page="LP">
 
   <!-- Top Bar -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center gap-3">
       <div class="shrink-0 rounded-xl bg-slate-900 text-white px-2.5 py-1 text-xs font-semibold">LP</div>
-      <h1 class="text-sm sm:text-base font-semibold">RealSource Properties • LP Investor Dataroom</h1>
+      <h1 class="text-sm sm:text-base font-semibold truncate">RealSource Properties • LP Investor Dataroom</h1>
       <!-- Updated Date -->
-      <div class="ml-auto text-[11px] text-slate-500 hidden sm:block">Last updated: 11/18/2025</div>
+      <div class="ml-auto text-[11px] text-slate-500 whitespace-nowrap">Last updated: 11/18/2025</div>
     </div>
   </header>
 
-  <main class="mx-auto max-w-3xl px-4 py-6">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 py-6">
 
-    <!-- Search Section -->
-    <section class="mb-4">
-      <div class="rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 shadow-sm">
+    <!-- Search Section (Full Width) -->
+    <section class="mb-6">
+      <div class="rounded-2xl bg-white border border-slate-200 p-4 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center gap-3">
           <div class="relative w-full">
             <input id="filter"
                    type="search"
-                   placeholder="Search documents (e.g., Annex B, RS Financials, Pro Forma, PPM)"
+                   placeholder="Search documents (e.g., W-9, Annex B, Financials, Pro Forma, PPM)"
                    class="w-full rounded-lg border border-slate-300 px-3 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
             <svg class="pointer-events-none absolute right-2 top-2.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="none">
               <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
             </svg>
           </div>
-          <div class="text-[11px] text-slate-500">
-            Tip: type a letter (A–M), “10-K”, “10-Q”, “MD&A”, or “Pro Forma”.
+          <div class="text-[11px] text-slate-500 whitespace-nowrap">
+             Tip: type a letter (A–M), “10-K”, “10-Q”, “MD&A”, or “Pro Forma”.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Action Item: Written Consent (NOW ON TOP) -->
-    <section class="mb-5">
-      <a href="#" id="open-consent-modal"
-         class="doc-card block rounded-2xl border border-emerald-200 bg-emerald-50 p-4 sm:p-5 hover:bg-emerald-100 transition shadow-sm"
-         data-tags="consent written consent lp limited partners form sign execute">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-emerald-600 text-white text-xs font-semibold px-2 py-1">Action</span>
-          <div>
-            <div class="text-sm sm:text-base font-semibold text-slate-900">
-              RealSource Properties OP, LP — Written Consent of the Limited Partners
-            </div>
-            <div class="mt-0.5 text-xs text-slate-700">
-              Click to electronically complete your Written Consent form.
-            </div>
-          </div>
-        </div>
-      </a>
+    <!-- Main Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       
-      <!-- PDF Alternative Link -->
-      <div class="mt-2 text-center text-xs text-slate-600">
-        <span class="font-bold">Alternatively, to print and sign manually,</span>
-        <a href="https://realsource451.sharepoint.com/:b:/g/EX4pATkhrvNAlD43d-kF9vsBLzFHRFsqWlTxd5TrcI9zPg?e=ubfPIT"
-           target="_blank" rel="noopener noreferrer"
-           class="text-indigo-600 hover:underline">
-          click here for the original PDF version
-        </a>.
+      <!-- LEFT COLUMN: Priority Actions & Main Docs (Fixed width on desktop) -->
+      <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
+        
+        <!-- Section Title -->
+        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1">Required Actions</h2>
+
+        <!-- Action 1: Written Consent -->
+        <div class="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-4 shadow-sm space-y-3">
+          <a href="#" id="open-consent-modal"
+             class="doc-card block hover:opacity-90 transition"
+             data-tags="consent written consent lp limited partners form sign execute">
+            <div class="flex items-start gap-3">
+              <span class="shrink-0 inline-flex rounded-md bg-emerald-600 text-white text-xs font-semibold px-2 py-1 shadow-sm">Action</span>
+              <div>
+                <div class="text-sm font-bold text-slate-900 leading-tight">RealSource Properties OP, LP — Written Consent of the Limited Partners</div>
+                <div class="mt-1 text-xs text-slate-700">Click to electronically complete your Written Consent form.</div>
+              </div>
+            </div>
+          </a>
+          
+          <!-- Separated Manual Option -->
+          <a href="https://realsource451.sharepoint.com/:b:/g/EX4pATkhrvNAlD43d-kF9vsBLzFHRFsqWlTxd5TrcI9zPg?e=ubfPIT" 
+             target="_blank" 
+             class="flex items-center justify-center gap-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition shadow-sm group">
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Download PDF to Sign Manually
+          </a>
+        </div>
+
+        <!-- Action 2: W-9 & Profile -->
+        <div class="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-4 shadow-sm space-y-3">
+          <a href="https://www.jotform.com/sign/253356615747061/invite/01kbgpx62ra1e06364f4c972f0"
+             target="_blank" rel="noopener noreferrer"
+             class="doc-card block hover:opacity-90 transition"
+             data-tags="w9 w-9 tax dob profile update distribution">
+            <div class="flex items-start gap-3">
+              <span class="shrink-0 inline-flex rounded-md bg-emerald-600 text-white text-xs font-semibold px-2 py-1 shadow-sm">Action</span>
+              <div>
+                <div class="text-sm font-bold text-slate-900 leading-tight">Investor Profile Update: W-9 & Date of Birth</div>
+                <div class="mt-1 text-xs text-slate-700">Required to ensure accurate distributions. Click to complete electronically.</div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Separated Manual Option -->
+          <a href="https://realsource451.sharepoint.com/:b:/r/Shared%20Documents/Forms/AllItems.aspx?id=%2fShared+Documents%2fRSP%2fCORP%2fEquity+Services%2fRS+Portfolio+Information%2fRS+UPREIT%2fMerger+Data+Room%2fProfileUpdate.pdf&parent=%2fShared+Documents%2fRSP%2fCORP%2fEquity+Services%2fRS+Portfolio+Information%2fRS+UPREIT%2fMerger+Data+Room&p=true&share=cQoDKqSMbQCuQ4oPYQHqrmtMEgUA_n-coVIYfMVJfyIdFa8Cug" 
+             target="_blank" 
+             class="flex items-center justify-center gap-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition shadow-sm group">
+             <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Download PDF to Complete Manually
+          </a>
+        </div>
+
+        <!-- Section Title -->
+        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mt-6">Primary Documents</h2>
+
+        <!-- PPM Documents (Stacked) -->
+        <div class="space-y-3">
+          
+          <!-- Main PPM -->
+          <a href="https://realsource451.sharepoint.com/:b:/g/EY94WlZnhx5LvXVBjtvihBwBGUSUucUh8nPSsB55Xk11Lw?e=TmfY3J"
+             target="_blank" rel="noopener noreferrer"
+             class="doc-card block rounded-xl border border-indigo-200 bg-white p-4 hover:bg-indigo-50 hover:border-indigo-300 transition shadow-sm group"
+             data-tags="ppm private placement memorandum">
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 h-10 w-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">PPM</div>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">Consent Solicitation Statement / Private Placement Memorandum (Nov 12, 2025)</div>
+                <div class="mt-1 text-xs text-slate-700">Primary disclosure document covering the proposed transactions.</div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Supplement 1 -->
+          <a href="https://realsource451.sharepoint.com/:b:/g/EbLhYnTlRTpEjCIN95Gx4JMBQ7xgFSdQw4a08cLLpBZXNg?e=uI1zwd"
+             target="_blank" rel="noopener noreferrer"
+             class="doc-card block rounded-xl border border-indigo-200 bg-white p-4 hover:bg-indigo-50 hover:border-indigo-300 transition shadow-sm group"
+             data-tags="ppm supplement 1">
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 h-10 w-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">Sup.1</div>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">PPM Supplement No. 1 (Nov 17, 2025)</div>
+                <div class="mt-1 text-xs text-slate-700">Supplemental information to the PPM.</div>
+              </div>
+            </div>
+          </a>
+        </div>
+
       </div>
-    </section>
 
-    <!-- Primary Documents: PPM & Supplement (Blue) -->
-    <section class="mb-5 space-y-3">
-      
-      <!-- Main PPM -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EY94WlZnhx5LvXVBjtvihBwBGUSUucUh8nPSsB55Xk11Lw?e=TmfY3J"
-         target="_blank" rel="noopener noreferrer"
-         class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">PPM</span>
-          <div>
-            <div class="text-sm sm:text-base font-semibold text-slate-900">Consent Solicitation Statement / Private Placement Memorandum (Nov 12, 2025)</div>
-            <div class="mt-0.5 text-xs text-slate-700">Primary disclosure document covering the proposed transactions.</div>
+      <!-- RIGHT COLUMN: Summaries & Annexes (Expansive) -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- Summaries (Grid) -->
+        <div>
+          <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mb-3">Transaction Summaries</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <!-- Merger Summary -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EV9jzEbxhStLncDXpxUa21UBOMQWHmhK0_2voiF7AYZuPw?e=6WBIse"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-xl border border-amber-200 bg-amber-50/50 p-4 hover:bg-amber-100 transition shadow-sm"
+               data-tags="merger summary new summary gold">
+               <div class="mb-2">
+                 <span class="inline-flex rounded bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 uppercase tracking-wide">New</span>
+               </div>
+               <div class="text-sm font-semibold text-slate-900">Merger Summary</div>
+               <div class="mt-0.5 text-xs text-slate-700">Overview of the merger details.</div>
+            </a>
+
+            <!-- Merger Presentation -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EWN9D0rcKAxNsgrpW-m15ScBBCW8dMYUogYMhmr7Ea-olQ?e=tEWtRF"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-xl border border-amber-200 bg-amber-50/50 p-4 hover:bg-amber-100 transition shadow-sm"
+               data-tags="merger presentation powerpoint deck new summary gold">
+               <div class="mb-2">
+                 <span class="inline-flex rounded bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 uppercase tracking-wide">New</span>
+               </div>
+               <div class="text-sm font-semibold text-slate-900">Merger Presentation</div>
+               <div class="mt-0.5 text-xs text-slate-700">PowerPoint presentation deck.</div>
+            </a>
           </div>
         </div>
-      </a>
 
-      <!-- PPM Supplement No. 1 -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EbLhYnTlRTpEjCIN95Gx4JMBQ7xgFSdQw4a08cLLpBZXNg?e=uI1zwd"
-         target="_blank" rel="noopener noreferrer"
-         class="block rounded-2xl border border-indigo-200 bg-indigo-50 p-4 sm:p-5 hover:bg-indigo-100 transition shadow-sm">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-indigo-600 text-white text-xs font-semibold px-2 py-1">Supp. 1</span>
-          <div>
-            <div class="text-sm sm:text-base font-semibold text-slate-900">PPM Supplement No. 1 (Nov 17, 2025)</div>
-            <div class="mt-0.5 text-xs text-slate-700">Supplemental information to the PPM.</div>
+        <!-- Annexes List (Compact Grid) -->
+        <div id="annex-list">
+          <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mb-3">Supporting Materials & Annexes</h2>
+          
+          <!-- Grid for Annexes: 1 col on mobile, 2 cols on desktop to save height -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+            <!-- Notice -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/Eb22tyIEvPtIggnFDWFMUkcBfDqtSosdLm4qqYpAMMdtLw?e=2mUeJQ"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm md:col-span-2"
+               data-tags="notice solicitation written consent limited partners">
+              <div class="flex items-start gap-3">
+                <span class="shrink-0 rounded bg-slate-800 text-white text-[10px] font-semibold px-2 py-1 mt-0.5">Notice</span>
+                <div>
+                    <div class="text-sm font-semibold text-slate-800 leading-snug">Notice of Solicitation of Written Consent of Limited Partners</div>
+                    <div class="mt-0.5 text-xs text-slate-500">Notice and materials relating to the written consent of LPs.</div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Annex A-1 -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/Ebvg0PMEkbpLoQklLi-u3I8B4h3pIjSevso_SfWfGvNS6g?e=c4vLMT"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex a1 merger agreement plan merger june 25 2025">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex A-1</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Agreement and Plan of Merger (June 25, 2025)</div>
+                <div class="text-xs text-slate-500">Definitive merger agreement.</div>
+              </div>
+            </a>
+
+            <!-- Annex A-2 -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/Ead8yV4a6zhJiwJ_0P00e_sBKvqiyReHLww80h7A-ZlDbw?e=81sAur"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex a2 amendment merger agreement nov 12 2025">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex A-2</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Amendment to Merger Agreement (Nov 12, 2025)</div>
+                <div class="text-xs text-slate-500">Amendment to the A-1 Agreement.</div>
+              </div>
+            </a>
+
+            <!-- Annex B -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/Ee9-4d8k4JdNrLYmKbbjDyQBf28mrmHqbeDhamstbV7k7g?e=7oULix"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex b internalization management internalization agreement">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex B</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Internalization Agreement</div>
+                <div class="text-xs text-slate-500">Agreement detailing management internalization.</div>
+              </div>
+            </a>
+
+            <!-- Annex C -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/ERjfGr_aZMhCub6eqZ9QrgEBHMDmcoaXBybup1o9SQ1HyA?e=LkqoSd"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex c opinion fairness advisor financial advisor rs board opinion">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex C</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Opinion of RS Board’s Financial Advisor</div>
+                <div class="text-xs text-slate-500">Advisor opinion to the RS Board.</div>
+              </div>
+            </a>
+
+            <!-- Annex D -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/ESjJBHJga7tAgkmlVnorqrkB_S01FopoCcw3csQKig3dXw?e=grBCcB"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex d cci 10k annual report december 31 2024">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex D</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">CCI Annual Report on Form 10-K (Dec 31, 2024)</div>
+                <div class="text-xs text-slate-500">CCI annual report.</div>
+              </div>
+            </a>
+
+            <!-- Annex E -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EcFhFB4GsUJJjWQaza8jROwBjttmWevYMRE71-zFtOybfQ"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex e cci 10q quarterly report june 30 2025">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex E</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">CCI Quarterly Report on Form 10-Q (June 30, 2025)</div>
+                <div class="text-xs text-slate-500">CCI quarterly filing.</div>
+              </div>
+            </a>
+
+            <!-- Annex F -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EWCz18cBlvFGr0fLN8jbrkQBmAW1nqZEXGRsDoTAVBytXw?e=slxbA6"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex f crop financial statements">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex F</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">CROP Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for CROP.</div>
+              </div>
+            </a>
+
+            <!-- Annex G -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EXhbnF0WWzRAm36MFDfgBZoB0rxaLSBG1MGMhb9RToPE2A?e=1jxZEI"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex g rs financial statements rs financials">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex G</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RS Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RS.</div>
+              </div>
+            </a>
+
+            <!-- Annex H -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EeFHPg56Ql1KrwMB7S0dmFEB18vHsSOC0NG13HVibZVCXw?e=CAGSHh"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex h rsop financial statements rsop financials">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex H</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RSOP Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RSOP.</div>
+              </div>
+            </a>
+
+            <!-- Annex I -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EQPAgbCS8LJOqJOlhFarvGkBDni9zGnAUSdtfy_8J_-0Xg?e=BxZIum"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex i mdna management analysis rs parties md&a">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex I</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Management’s Discussion &amp; Analysis (RS Parties)</div>
+                <div class="text-xs text-slate-500">MD&A for RS.</div>
+              </div>
+            </a>
+
+            <!-- Annex J -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EaCKxKQ7GCZKmylS3_nzqe4BEh2cqBJror90MPjTfskmqw?e=fgZNRk"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex j rsm financial statements">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex J</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RSM Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RSM.</div>
+              </div>
+            </a>
+
+            <!-- Annex K -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EYMnSH36b6NPvXXzhY1LR4UBGdS8lTTrsu8hhMaM3kc7_A?e=yxprfT"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex k rs advisor financial statements advisor">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex K</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RS Advisor Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RS Advisor.</div>
+              </div>
+            </a>
+
+            <!-- Annex L -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EYKuW3QdhXtNmfm6XHk6rFMBF2W1UauTXuj67XDUXPhMkA?e=zZnHMQ"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex l manager property rs manager financials">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex L</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RS Property Manager Financial Statements</div>
+                <div class="text-xs text-slate-500">Financials for RS Property Manager.</div>
+              </div>
+            </a>
+
+            <!-- Annex M -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/EYjpsyTpHGxMuyFC3g33FEABNCScCIRMcjwTcLVS3pgOGg?e=n59jqA"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex m pro forma combined company partnership unaudited pro forma">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex M</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Unaudited Pro Forma Financial Information — Combined Company &amp; Partnership</div>
+                <div class="text-xs text-slate-500">Pro forma details for the combined entities.</div>
+              </div>
+            </a>
+
           </div>
         </div>
-      </a>
 
-    </section>
-
-    <!-- Summary Documents (Yellow/Gold) -->
-    <section class="mb-5 grid gap-3 sm:grid-cols-2">
-      <!-- Merger Summary -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EV9jzEbxhStLncDXpxUa21UBOMQWHmhK0_2voiF7AYZuPw?e=6WBIse"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-2xl border border-amber-200 bg-amber-50 p-4 hover:bg-amber-100 transition shadow-sm"
-         data-tags="merger summary new summary gold">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-amber-500 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wide">New</span>
-          <div>
-            <div class="text-sm font-semibold text-slate-900">Merger Summary</div>
-            <div class="mt-0.5 text-xs text-slate-700">Overview of the merger details.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Merger Presentation -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EWN9D0rcKAxNsgrpW-m15ScBBCW8dMYUogYMhmr7Ea-olQ?e=tEWtRF"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-2xl border border-amber-200 bg-amber-50 p-4 hover:bg-amber-100 transition shadow-sm"
-         data-tags="merger presentation powerpoint deck new summary gold">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-amber-500 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wide">New</span>
-          <div>
-            <div class="text-sm font-semibold text-slate-900">Merger Presentation</div>
-            <div class="mt-0.5 text-xs text-slate-700">PowerPoint presentation deck.</div>
-          </div>
-        </div>
-      </a>
-    </section>
-
-    <!-- Notice & Annexes List -->
-    <section class="space-y-3" id="annex-list">
-
-      <!-- Notice -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/Eb22tyIEvPtIggnFDWFMUkcBfDqtSosdLm4qqYpAMMdtLw?e=2mUeJQ"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="notice solicitation written consent limited partners">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-900 text-white text-[10px] font-semibold px-2 py-1">Notice</span>
-          <div>
-            <div class="text-sm font-semibold">Notice of Solicitation of Written Consent of Limited Partners</div>
-            <div class="mt-0.5 text-xs text-slate-600">Notice and materials relating to the written consent of LPs.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex A-1 -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/Ebvg0PMEkbpLoQklLi-u3I8B4h3pIjSevso_SfWfGvNS6g?e=c4vLMT"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex a1 merger agreement plan merger june 25 2025">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex A-1</span>
-          <div>
-            <div class="text-sm font-semibold">Agreement and Plan of Merger (June 25, 2025)</div>
-            <div class="mt-0.5 text-xs text-slate-600">Definitive merger agreement.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex A-2 -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/Ead8yV4a6zhJiwJ_0P00e_sBKvqiyReHLww80h7A-ZlDbw?e=81sAur"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex a2 amendment merger agreement nov 12 2025">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex A-2</span>
-          <div>
-            <div class="text-sm font-semibold">Amendment to Merger Agreement (Nov 12, 2025)</div>
-            <div class="mt-0.5 text-xs text-slate-600">Amendment to the A-1 Agreement.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex B -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/Ee9-4d8k4JdNrLYmKbbjDyQBf28mrmHqbeDhamstbV7k7g?e=7oULix"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex b internalization management internalization agreement">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex B</span>
-          <div>
-            <div class="text-sm font-semibold">Internalization Agreement</div>
-            <div class="mt-0.5 text-xs text-slate-600">Agreement detailing management internalization.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex C -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/ERjfGr_aZMhCub6eqZ9QrgEBHMDmcoaXBybup1o9SQ1HyA?e=LkqoSd"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex c opinion fairness advisor financial advisor rs board opinion">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex C</span>
-          <div>
-            <div class="text-sm font-semibold">Opinion of RS Board’s Financial Advisor</div>
-            <div class="mt-0.5 text-xs text-slate-600">Advisor opinion to the RS Board.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex D -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/ESjJBHJga7tAgkmlVnorqrkB_S01FopoCcw3csQKig3dXw?e=grBCcB"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex d cci 10k annual report december 31 2024">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex D</span>
-          <div>
-            <div class="text-sm font-semibold">CCI Annual Report on Form 10-K (Dec 31, 2024)</div>
-            <div class="mt-0.5 text-xs text-slate-600">CCI annual report.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex E -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EcFhFB4GsUJJjWQaza8jROwBjttmWevYMRE71-zFtOybfQ"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex e cci 10q quarterly report june 30 2025">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex E</span>
-          <div>
-            <div class="text-sm font-semibold">CCI Quarterly Report on Form 10-Q (June 30, 2025)</div>
-            <div class="mt-0.5 text-xs text-slate-600">CCI quarterly filing.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex F -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EWCz18cBlvFGr0fLN8jbrkQBmAW1nqZEXGRsDoTAVBytXw?e=slxbA6"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex f crop financial statements">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex F</span>
-          <div>
-            <div class="text-sm font-semibold">CROP Financial Statements</div>
-            <div class="mt-0.5 text-xs text-slate-600">Financial statements for CROP.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex G -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EXhbnF0WWzRAm36MFDfgBZoB0rxaLSBG1MGMhb9RToPE2A?e=1jxZEI"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex g rs financial statements rs financials">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex G</span>
-          <div>
-            <div class="text-sm font-semibold">RS Financial Statements</div>
-            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RS.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex H -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EeFHPg56Ql1KrwMB7S0dmFEB18vHsSOC0NG13HVibZVCXw?e=CAGSHh"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex h rsop financial statements rsop financials">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex H</span>
-          <div>
-            <div class="text-sm font-semibold">RSOP Financial Statements</div>
-            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RSOP.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex I -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EQPAgbCS8LJOqJOlhFarvGkBDni9zGnAUSdtfy_8J_-0Xg?e=BxZIum"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex i mdna management analysis rs parties md&a">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex I</span>
-          <div>
-            <div class="text-sm font-semibold">Management’s Discussion &amp; Analysis (RS Parties)</div>
-            <div class="mt-0.5 text-xs text-slate-600">MD&A for RS.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex J -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EaCKxKQ7GCZKmylS3_nzqe4BEh2cqBJror90MPjTfskmqw?e=fgZNRk"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex j rsm financial statements">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex J</span>
-          <div>
-            <div class="text-sm font-semibold">RSM Financial Statements</div>
-            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RSM.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex K -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EYMnSH36b6NPvXXzhY1LR4UBGdS8lTTrsu8hhMaM3kc7_A?e=yxprfT"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex k rs advisor financial statements advisor">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex K</span>
-          <div>
-            <div class="text-sm font-semibold">RS Advisor Financial Statements</div>
-            <div class="mt-0.5 text-xs text-slate-600">Financial statements for RS Advisor.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex L -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EYKuW3QdhXtNmfm6XHk6rFMBF2W1UauTXuj67XDUXPhMkA?e=zZnHMQ"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex l manager property rs manager financials">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex L</span>
-          <div>
-            <div class="text-sm font-semibold">RS Property Manager Financial Statements</div>
-            <div class="mt-0.5 text-xs text-slate-600">Financials for RS Property Manager.</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Annex M -->
-      <a href="https://realsource451.sharepoint.com/:b:/g/EYjpsyTpHGxMuyFC3g33FEABNCScCIRMcjwTcLVS3pgOGg?e=n59jqA"
-         target="_blank" rel="noopener noreferrer"
-         class="doc-card block rounded-xl border border-slate-200 bg-white p-4 hover:bg-slate-50 transition shadow-sm"
-         data-tags="annex m pro forma combined company partnership unaudited pro forma">
-        <div class="flex items-start gap-3">
-          <span class="inline-flex rounded-md bg-slate-800 text-white text-[10px] font-semibold px-2 py-1">Annex M</span>
-          <div>
-            <div class="text-sm font-semibold">Unaudited Pro Forma Financial Information — Combined Company &amp; Partnership</div>
-            <div class="mt-0.5 text-xs text-slate-600">Pro forma details for the combined entities.</div>
-          </div>
-        </div>
-      </a>
-    </section>
+      </div>
+    </div>
 
     <!-- Footer -->
-    <section class="mt-6 text-[11px] text-slate-500">
-      This material is confidential and intended solely for the recipient in connection with evaluating the proposed transaction.
+    <section class="mt-8 pt-6 border-t border-slate-200 text-center text-[11px] text-slate-400">
+      This material is confidential and intended solely for the recipient in connection with evaluating the proposed transaction. <br class="hidden sm:block">
       Do not distribute without prior written consent.
     </section>
   </main>
@@ -398,7 +424,6 @@
   </div>
 
   <!-- Access Gate / Visit Gate -->
-  <!-- Note: Legal language in this section must be preserved exactly. -->
   <div id="visit-gate" class="fixed inset-0 z-50 hidden overflow-y-auto">
     <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
     <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
@@ -448,6 +473,7 @@
     const els = {
       body: document.body,
       filterInput: document.getElementById('filter'),
+      // Important: doc-card selector picks up new structure too
       cards: Array.from(document.querySelectorAll('.doc-card')),
       
       // Gate Elements
@@ -465,10 +491,6 @@
 
     // --- Utilities ---
 
-    /**
-     * Checks gate status and shows it if necessary.
-     * Returns true if gate is open (user has access), false otherwise.
-     */
     function checkGate() {
       try {
         if (!localStorage.getItem(STORAGE_KEY)) {
@@ -477,24 +499,18 @@
         }
         return true;
       } catch (e) {
-        // LocalStorage access denied or error
         toggleModal(els.gate, true);
         return false;
       }
     }
 
-    /**
-     * Toggles a modal's visibility and handles body scroll locking.
-     */
     function toggleModal(modal, show) {
       if (!modal) return;
-      
       if (show) {
         modal.classList.remove('hidden');
         els.body.classList.add('modal-open');
       } else {
         modal.classList.add('hidden');
-        // Only remove scroll lock if NO other modals are open
         const otherOpen = document.querySelectorAll('.fixed:not(.hidden).z-50');
         if (otherOpen.length === 0) {
           els.body.classList.remove('modal-open');
@@ -502,44 +518,23 @@
       }
     }
 
-    /**
-     * Promise-based JSONP implementation with TIMEOUT support.
-     * If the script doesn't respond within `timeout` ms, the promise rejects.
-     */
-    function jsonpAsync(url, params = {}, timeout = 15000) { // Default timeout 15s
+    function jsonpAsync(url, params = {}, timeout = 15000) {
       return new Promise((resolve, reject) => {
         const cbName = `cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
         const script = document.createElement('script');
         let timer = null;
         
-        // Cleanup helper
         const cleanup = () => {
           if (timer) clearTimeout(timer);
-          // Safe cleanup - don't immediately delete, just set to no-op in case it comes late
           window[cbName] = () => {}; 
           try { delete window[cbName]; } catch(e) {}
           if (script.parentNode) script.parentNode.removeChild(script);
         };
 
-        // Success Callback
-        window[cbName] = (response) => {
-          cleanup();
-          resolve(response);
-        };
+        window[cbName] = (response) => { cleanup(); resolve(response); };
+        script.onerror = () => { cleanup(); reject(new Error('Network error')); };
+        timer = setTimeout(() => { cleanup(); reject(new Error('Timeout')); }, timeout);
 
-        // Error Handling (Network error / CORB blocking)
-        script.onerror = () => {
-          cleanup();
-          reject(new Error('Network error'));
-        };
-
-        // Timeout Handling
-        timer = setTimeout(() => {
-          cleanup();
-          reject(new Error('Timeout'));
-        }, timeout);
-
-        // Construct URL
         const searchParams = new URLSearchParams({ ...params, callback: cbName });
         script.src = `${url}?${searchParams.toString()}`;
         script.async = true;
@@ -547,12 +542,9 @@
       });
     }
 
-    // --- Initialization & Event Listeners ---
-
-    // 1. Initialize Gate
+    // --- Initialization ---
     checkGate();
 
-    // 2. Filter Logic
     if (els.filterInput) {
       els.filterInput.addEventListener('input', (e) => {
         const q = e.target.value.trim().toLowerCase();
@@ -560,12 +552,12 @@
           const tags = (card.getAttribute('data-tags') || '').toLowerCase();
           const text = card.textContent.toLowerCase();
           const isMatch = !q || tags.includes(q) || text.includes(q);
+          
           card.style.display = isMatch ? '' : 'none';
         });
       });
     }
 
-    // 3. Consent Modal Logic
     if (els.openConsentBtn) {
       els.openConsentBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -581,12 +573,9 @@
       link.addEventListener('click', () => toggleModal(els.consentModal, false));
     });
 
-    // 4. Gate Form Submission
     if (els.gateForm) {
       els.gateForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
-        // Validation
         const formData = new FormData(els.gateForm);
         const name = (formData.get('name') || '').toString().trim();
         
@@ -597,55 +586,30 @@
           return;
         }
 
-        // UI Loading State
         els.gateSubmit.disabled = true;
         const originalBtnContent = els.gateSubmit.innerHTML;
-        els.gateSubmit.innerHTML = `
-          <div class="flex items-center gap-2">
-            <div class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            <span>Logging...</span>
-          </div>`;
+        els.gateSubmit.innerHTML = `<div class="flex items-center gap-2"><div class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Logging...</span></div>`;
 
         try {
-          // 1. Get IP (attempt only, short timeout)
           let ip = "";
           try {
-            // Short 2s timeout for IP, if it fails, just move on
             const ipData = await jsonpAsync("https://api.ipify.org", { format: "jsonp" }, 2000);
             ip = ipData?.ip || "";
-          } catch (err) {
-            console.warn("Client IP fetch failed, relying on server IP.");
-          }
+          } catch (err) {}
 
-          // 2. Log Visit - FAIL CLOSED
           const payload = {
-            name,
-            page: PAGE_ID,
-            ua: navigator.userAgent,
-            ref: document.referrer || "",
-            ref_url: window.location.href,
-            ip
+            name, page: PAGE_ID, ua: navigator.userAgent,
+            ref: document.referrer || "", ref_url: window.location.href, ip
           };
 
-          // We await this. If it throws (timeout or error), we catch it below and DENY access.
-          // Increased timeout to 15000ms (15s) to handle Google Script cold starts
           await jsonpAsync(LOG_ENDPOINT, payload, 15000);
-
-          // 3. Success (Only reached if above succeeds)
-          try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() }));
-          } catch (_) {} 
-
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch (_) {} 
           toggleModal(els.gate, false);
 
         } catch (err) {
-          // 4. FAIL CLOSED - Security Requirement
-          console.error("Logging failed (Fail Closed):", err);
           els.gateError.innerHTML = "Security Check Failed.<br>Unable to verify connection. Please disable ad-blockers or try a different network.";
           els.gateError.classList.remove('hidden');
-          // Do NOT close the modal.
         } finally {
-          // Reset Button
           els.gateSubmit.innerHTML = originalBtnContent;
           els.gateSubmit.disabled = false;
         }
