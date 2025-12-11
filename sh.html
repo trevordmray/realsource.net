@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Stockholder Dataroom</title>
+  <title>LP Dataroom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light only">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,13 +18,13 @@
   </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900" data-page="SH">
+<body class="bg-slate-50 text-slate-900" data-page="LP">
 
   <!-- Top Bar -->
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center gap-3">
-      <div class="shrink-0 rounded-xl bg-slate-900 text-white px-2.5 py-1 text-xs font-semibold">SH</div>
-      <h1 class="text-sm sm:text-base font-semibold truncate">RealSource Properties • Stockholder Dataroom</h1>
+      <div class="shrink-0 rounded-xl bg-slate-900 text-white px-2.5 py-1 text-xs font-semibold">LP</div>
+      <h1 class="text-sm sm:text-base font-semibold truncate">RealSource Properties • LP Investor Dataroom</h1>
       <!-- Updated Date -->
       <div class="ml-auto text-[11px] text-slate-500 whitespace-nowrap">Last updated: 12/10/2025</div>
     </div>
@@ -66,11 +66,11 @@
           <div class="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-4 shadow-sm">
             <a href="#" id="open-consent-modal"
                class="doc-card block hover:opacity-90 transition"
-               data-tags="consent stockholder written consent vote sign execute rs stockholders">
+               data-tags="consent written consent lp limited partners form sign execute">
               <div class="flex items-start gap-3">
                 <span class="shrink-0 inline-flex rounded-md bg-emerald-600 text-white text-xs font-semibold px-2 py-1 shadow-sm">Action</span>
                 <div>
-                  <div class="text-sm font-bold text-slate-900 leading-tight">RealSource Properties, Inc. — Written Consent of the Stockholders</div>
+                  <div class="text-sm font-bold text-slate-900 leading-tight">RealSource Properties OP, LP — Written Consent of the Limited Partners</div>
                   <div class="mt-1 text-xs text-slate-700">Click to electronically complete your Written Consent form.</div>
                 </div>
               </div>
@@ -78,7 +78,7 @@
           </div>
           
           <!-- Separated Manual Option -->
-          <a href="https://realsource451.sharepoint.com/:b:/g/Eagf7WRd-NpCjA9svUtvbasBX-8PanG6FbFMDLOSPUnMMA?e=4jbW6r" 
+          <a href="https://realsource451.sharepoint.com/:b:/g/EX4pATkhrvNAlD43d-kF9vsBLzFHRFsqWlTxd5TrcI9zPg?e=ubfPIT" 
              target="_blank" 
              class="flex items-center justify-center gap-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition shadow-sm group">
             <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -91,28 +91,19 @@
         <!-- Action 2: W-9 & Profile -->
         <div class="space-y-2">
           <div class="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-4 shadow-sm">
-            <a href="https://realsource451.sharepoint.com/:b:/g/IQDoih3om6aqRbFS9WutHJb4Acx-v_flY36okiqGekMTmys"
-               target="_blank" rel="noopener noreferrer"
+            <a href="#" id="open-w9-modal"
                class="doc-card block hover:opacity-90 transition"
                data-tags="w9 w-9 tax dob profile update distribution">
               <div class="flex items-start gap-3">
                 <span class="shrink-0 inline-flex rounded-md bg-emerald-600 text-white text-xs font-semibold px-2 py-1 shadow-sm">Action</span>
                 <div>
                   <div class="text-sm font-bold text-slate-900 leading-tight">Investor Profile Update: W-9 & Date of Birth</div>
-                  <div class="mt-1 text-xs text-slate-700">Required to ensure accurate distributions. Click to complete electronically.</div>
+                  <div class="mt-1 text-xs text-slate-700">Required to ensure accurate distributions. Click to complete electronically or print.</div>
                 </div>
               </div>
             </a>
           </div>
-
-          <!-- Separated Manual Option -->
-          <a href="https://realsource451.sharepoint.com/:b:/g/EQMqpIxtAK5Dig9hAequa0wBJXjB62-qoVq_F4Zoh4w9fg?e=Zdavjk" 
-             class="flex items-center justify-center gap-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition shadow-sm group">
-             <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Download PDF to Complete Manually
-          </a>
+          <!-- Manual Option removed here as it is now inside the modal -->
         </div>
 
         <!-- Section Title -->
@@ -201,16 +192,16 @@
           <!-- Grid for Annexes: 1 col on mobile, 2 cols on desktop to save height -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 
-            <!-- Notice (Stockholder Version) -->
-            <a href="https://realsource451.sharepoint.com/:b:/g/Eb1cbowaGr5JhD347gIg1iwBeoWPbWPJVmkc_Sn7YpQGOg?e=tmrxi1"
+            <!-- Notice -->
+            <a href="https://realsource451.sharepoint.com/:b:/g/Eb22tyIEvPtIggnFDWFMUkcBfDqtSosdLm4qqYpAMMdtLw?e=2mUeJQ"
                target="_blank" rel="noopener noreferrer"
                class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm md:col-span-2"
-               data-tags="notice stockholder solicitation written consent notice stockholders">
+               data-tags="notice solicitation written consent limited partners">
               <div class="flex items-start gap-3">
                 <span class="shrink-0 rounded bg-slate-800 text-white text-[10px] font-semibold px-2 py-1 mt-0.5">Notice</span>
                 <div>
-                    <div class="text-sm font-semibold text-slate-800 leading-snug">Notice of Solicitation of Written Consent of Stockholders</div>
-                    <div class="mt-0.5 text-xs text-slate-500">Notice and materials relating to stockholder voting.</div>
+                    <div class="text-sm font-semibold text-slate-800 leading-snug">Notice of Solicitation of Written Consent of Limited Partners</div>
+                    <div class="mt-0.5 text-xs text-slate-500">Notice and materials relating to the written consent of LPs.</div>
                 </div>
               </div>
             </a>
@@ -271,7 +262,7 @@
               <div class="flex flex-col gap-1">
                 <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex D</span>
                 <div class="text-sm font-medium text-slate-900 leading-snug">CCI Annual Report on Form 10-K (Dec 31, 2024)</div>
-                <div class="text-xs text-slate-500">CCI annual financials.</div>
+                <div class="text-xs text-slate-500">CCI annual report.</div>
               </div>
             </a>
 
@@ -307,7 +298,7 @@
               <div class="flex flex-col gap-1">
                 <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex G</span>
                 <div class="text-sm font-medium text-slate-900 leading-snug">RS Financial Statements</div>
-                <div class="text-xs text-slate-500">Financial statements for RealSource Properties, Inc.</div>
+                <div class="text-xs text-slate-500">Financial statements for RS.</div>
               </div>
             </a>
 
@@ -331,7 +322,7 @@
               <div class="flex flex-col gap-1">
                 <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex I</span>
                 <div class="text-sm font-medium text-slate-900 leading-snug">Management’s Discussion &amp; Analysis (RS Parties)</div>
-                <div class="text-xs text-slate-500">Operational and financial discussion.</div>
+                <div class="text-xs text-slate-500">MD&A for RS.</div>
               </div>
             </a>
 
@@ -379,7 +370,7 @@
               <div class="flex flex-col gap-1">
                 <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex M</span>
                 <div class="text-sm font-medium text-slate-900 leading-snug">Unaudited Pro Forma Financial Information — Combined Company &amp; Partnership</div>
-                <div class="text-xs text-slate-500">Pro forma combined financials.</div>
+                <div class="text-xs text-slate-500">Pro forma details for the combined entities.</div>
               </div>
             </a>
 
@@ -410,12 +401,12 @@
         </p>
         
         <div class="space-y-3">
-          <a href="https://www.jotform.com/sign/253158325448057/invite/01k9xh573a3eaf861161afd984"
+          <a href="https://www.jotform.com/sign/253157672110047/invite/01k9xfxj2bc95a6f819ebdff4a"
              target="_blank" rel="noopener noreferrer"
              class="consent-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 disabled:opacity-60 flex items-center justify-center gap-2">
             One Signer Required
           </a>
-          <a href="https://www.jotform.com/sign/253158647604058/invite/01k9xh146x5d18bd41372b851e"
+          <a href="https://www.jotform.com/sign/253157672263056/invite/01k9z6c22pf3aacb5ccb566e91"
              target="_blank" rel="noopener noreferrer"
              class="consent-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 disabled:opacity-60 flex items-center justify-center gap-2">
             Two Signers Required
@@ -430,6 +421,58 @@
         <button id="close-consent-modal" type="button"
           class="w-full rounded-lg bg-slate-100 text-slate-700 text-sm font-medium py-2.5 hover:bg-slate-200 flex items-center justify-center gap-2 mt-4">
           Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- W-9 Modal -->
+  <div id="w9-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="document.getElementById('close-w9-modal').click()"></div>
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4 pointer-events-none">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 pointer-events-auto">
+        <h2 class="text-lg font-semibold text-slate-900 mb-1">Investor Profile & W-9</h2>
+        <p class="text-sm text-slate-600 mb-4">Please select the version that matches your entity type.</p>
+
+        <!-- E-Sign Section -->
+        <div class="mb-4">
+          <h3 class="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2">Option 1: E-Sign (Recommended)</h3>
+          <div class="space-y-2">
+            <a href="https://www.jotform.com/sign/253445254911052/invite/01kc7e2dvkf58cb75b43bceb91"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 flex items-center justify-center gap-2">
+               Individual (SSN) - E-Sign
+            </a>
+            <a href="https://www.jotform.com/sign/253445204295052/invite/01kc7e3j8145d8e8f0613751d6"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 flex items-center justify-center gap-2">
+               Entity (EIN) - E-Sign
+            </a>
+          </div>
+        </div>
+
+        <!-- Print Section -->
+        <div class="mb-4 pt-4 border-t border-slate-100">
+          <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Option 2: Print & Sign (Manual)</h3>
+          <div class="space-y-2">
+             <a href="https://realsource451.sharepoint.com/:b:/g/IQDsqGTV3RAXQqL1Mqf_bsChAZkXz66ZTYLsD1FIFSIzXWw?e=0OUy3e"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link flex items-center justify-center w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+               <svg class="w-4 h-4 mr-2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+               Download Individual (SSN) PDF
+            </a>
+            <a href="https://realsource451.sharepoint.com/:b:/g/IQCzE51G2eTjT4lV6VJWFOb_AcX1LUU5P3etmGw3E7JANDg?e=uYCa3D"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link flex items-center justify-center w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+               <svg class="w-4 h-4 mr-2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+               Download Entity (EIN) PDF
+            </a>
+          </div>
+        </div>
+
+        <button id="close-w9-modal" type="button"
+          class="w-full rounded-lg bg-slate-100 text-slate-700 text-sm font-medium py-2.5 hover:bg-slate-200 flex items-center justify-center gap-2 mt-2">
+          Close
         </button>
       </div>
     </div>
@@ -498,7 +541,13 @@
       consentModal: document.getElementById('consent-modal'),
       openConsentBtn: document.getElementById('open-consent-modal'),
       closeConsentBtn: document.getElementById('close-consent-modal'),
-      consentLinks: document.querySelectorAll('.consent-link')
+      consentLinks: document.querySelectorAll('.consent-link'),
+
+      // W-9 Modal Elements
+      w9Modal: document.getElementById('w9-modal'),
+      openW9Btn: document.getElementById('open-w9-modal'),
+      closeW9Btn: document.getElementById('close-w9-modal'),
+      w9Links: document.querySelectorAll('.w9-link')
     };
 
     // --- Utilities ---
@@ -570,19 +619,32 @@
       });
     }
 
+    // Consent Modal Logic
     if (els.openConsentBtn) {
       els.openConsentBtn.addEventListener('click', (e) => {
         e.preventDefault();
         toggleModal(els.consentModal, true);
       });
     }
-    
     if (els.closeConsentBtn) {
       els.closeConsentBtn.addEventListener('click', () => toggleModal(els.consentModal, false));
     }
-    
     els.consentLinks.forEach(link => {
       link.addEventListener('click', () => toggleModal(els.consentModal, false));
+    });
+
+    // W-9 Modal Logic
+    if (els.openW9Btn) {
+      els.openW9Btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleModal(els.w9Modal, true);
+      });
+    }
+    if (els.closeW9Btn) {
+      els.closeW9Btn.addEventListener('click', () => toggleModal(els.w9Modal, false));
+    }
+    els.w9Links.forEach(link => {
+      link.addEventListener('click', () => toggleModal(els.w9Modal, false));
     });
 
     if (els.gateForm) {
