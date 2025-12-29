@@ -1,69 +1,570 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #666;
-        }
-        .timer {
-            margin-top: 30px;
-            font-weight: bold;
-            color: #3498db;
-        }
-        .footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #999;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <title>Stockholder Dataroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light only">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Prevent body scroll when modals are open */
+    .modal-open { overflow: hidden; }
+    
+    /* Custom Scrollbar for inner content if needed */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
 </head>
-<body>
 
-    <div class="container">
-        <div class="icon">🛠️</div>
-        <h1>We’ll be back soon!</h1>
-        <p>Sorry for the inconvenience. We’re performing some scheduled maintenance to improve your experience. We should be back online shortly.</p>
+<body class="bg-slate-50 text-slate-900" data-page="SH">
+
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center gap-3">
+      <div class="shrink-0 rounded-xl bg-slate-900 text-white px-2.5 py-1 text-xs font-semibold">SH</div>
+      <h1 class="text-sm sm:text-base font-semibold truncate">RealSource Properties • Stockholder Dataroom</h1>
+      <div class="ml-auto text-[11px] text-slate-500 whitespace-nowrap">Last updated: 12/29/2025 (V81)</div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 py-6">
+
+    <section class="mb-6">
+      <div class="rounded-2xl bg-white border border-slate-200 p-4 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <div class="relative w-full">
+            <input id="filter"
+                   type="search"
+                   placeholder="Search documents (e.g., W-9, Annex B, Financials, Pro Forma, PPM)"
+                   class="w-full rounded-lg border border-slate-300 px-3 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
+            <svg class="pointer-events-none absolute right-2 top-2.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="none">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>
+          </div>
+          <div class="text-[11px] text-slate-500 whitespace-nowrap">
+             Tip: type a letter (A–M), “10-K”, “10-Q”, “MD&A”, or “Pro Forma”.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
         
-        <div class="timer">
-            Estimated completion: January 2, 2026
+        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1">Required Actions</h2>
+
+        <div class="space-y-2">
+          <div class="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-4 shadow-sm">
+            <a href="#" id="open-w9-modal"
+               class="doc-card block hover:opacity-90 transition"
+               data-tags="w9 w-9 tax dob profile update distribution">
+              <div class="flex items-start gap-3">
+                <span class="shrink-0 inline-flex rounded-md bg-emerald-600 text-white text-xs font-semibold px-2 py-1 shadow-sm">Action</span>
+                <div>
+                  <div class="text-sm font-bold text-slate-900 leading-tight">Investor Profile Update: W-9</div>
+                  <div class="mt-1 text-xs text-slate-700">Required to ensure accurate distributions. Click to complete electronically or print.</div>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
 
-        <div class="footer">
-            &copy; 2025 RealSource Properties
+        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mt-6">Primary Documents</h2>
+
+        <div class="space-y-3">
+          
+          <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Consent%20Solicitation%20Statement%20and%20PPM%20dated%20November%2012%2C%202025.pdf"
+             target="_blank" rel="noopener noreferrer"
+             class="doc-card block rounded-xl border border-indigo-200 bg-white p-4 hover:bg-indigo-50 hover:border-indigo-300 transition shadow-sm group"
+             data-tags="ppm private placement memorandum">
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 h-10 w-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">PPM</div>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">Consent Solicitation Statement / Private Placement Memorandum (Nov 12, 2025)</div>
+                <div class="mt-1 text-xs text-slate-700">Primary disclosure document covering the proposed transactions.</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/PPM%20Supplement%20No.%201%2C%20dated%20November%2017%2C%202025.pdf"
+             target="_blank" rel="noopener noreferrer"
+             class="doc-card block rounded-xl border border-indigo-200 bg-white p-4 hover:bg-indigo-50 hover:border-indigo-300 transition shadow-sm group"
+             data-tags="ppm supplement 1">
+            <div class="flex items-start gap-3">
+              <div class="shrink-0 h-10 w-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">Sup.1</div>
+              <div>
+                <div class="text-sm font-semibold text-slate-900">PPM Supplement No. 1 (Nov 17, 2025)</div>
+                <div class="mt-1 text-xs text-slate-700">Supplemental information to the PPM.</div>
+              </div>
+            </div>
+          </a>
         </div>
+
+      </div>
+
+      <div class="lg:col-span-8 space-y-6">
+
+        <div>
+           <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mb-3">Latest Update</h2>
+           <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Notice%20of%20Approval%20of%20Company%20Merger%2C%20Partnership%20Merger%20and%20Pre-Merger%20Transactions.pdf"
+              target="_blank" rel="noopener noreferrer"
+              class="doc-card block rounded-xl border border-amber-200 bg-amber-50/50 p-4 hover:bg-amber-100 transition shadow-sm"
+              data-tags="approval notice merger company partnership pre-merger transactions">
+              <div class="mb-2">
+                <span class="inline-flex rounded bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 uppercase tracking-wide">New</span>
+              </div>
+              <div class="text-sm font-semibold text-slate-900">Notice of Approval of Company Merger, Partnership Merger and Pre-Merger Transactions</div>
+              <div class="mt-0.5 text-xs text-slate-700">Official notice of approval for the merger and related transactions.</div>
+           </a>
+        </div>
+
+        <div>
+          <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mb-3">Transaction Summaries</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Merger%20Summary.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-xl border border-sky-200 bg-sky-50/50 p-4 hover:bg-sky-100 transition shadow-sm"
+               data-tags="merger summary gold">
+               <div class="text-sm font-semibold text-slate-900">Merger Summary</div>
+               <div class="mt-0.5 text-xs text-slate-700">Overview of the merger details.</div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Merger%20PowerPoint.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-xl border border-sky-200 bg-sky-50/50 p-4 hover:bg-sky-100 transition shadow-sm"
+               data-tags="merger presentation powerpoint deck gold">
+               <div class="text-sm font-semibold text-slate-900">Merger Presentation</div>
+               <div class="mt-0.5 text-xs text-slate-700">PowerPoint presentation deck.</div>
+            </a>
+          </div>
+        </div>
+
+        <div id="annex-list">
+          <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1 mb-3">Supporting Materials & Annexes</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Notice%20of%20Solicitation%20of%20Written%20Consent%20of%20Stockholders.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm md:col-span-2"
+               data-tags="notice stockholder solicitation written consent notice stockholders">
+              <div class="flex items-start gap-3">
+                <span class="shrink-0 rounded bg-slate-800 text-white text-[10px] font-semibold px-2 py-1 mt-0.5">Notice</span>
+                <div>
+                    <div class="text-sm font-semibold text-slate-800 leading-snug">Notice of Solicitation of Written Consent of Stockholders</div>
+                    <div class="mt-0.5 text-xs text-slate-500">Notice and materials relating to stockholder voting.</div>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20A-1%20-%20Agreement%20and%20Plan%20of%20Merger%20dated%20June%2025%2C%202025.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex a1 merger agreement plan merger june 25 2025">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex A-1</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Agreement and Plan of Merger (June 25, 2025)</div>
+                <div class="text-xs text-slate-500">Definitive merger agreement.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20A-2%20-%20Amendment%20to%20Merger%20Agreement%20dated%20November%2012%2C%202025.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex a2 amendment merger agreement nov 12 2025">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex A-2</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Amendment to Merger Agreement (Nov 12, 2025)</div>
+                <div class="text-xs text-slate-500">Amendment to the A-1 Agreement.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20B%20-%20Internalization%20Agreement.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex b internalization management internalization agreement">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex B</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Internalization Agreement</div>
+                <div class="text-xs text-slate-500">Agreement detailing management internalization.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20C%20-%20Opinion%20of%20RS%20Board's%20Financial%20Advisor.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex c opinion fairness advisor financial advisor rs board opinion">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex C</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Opinion of RS Board’s Financial Advisor</div>
+                <div class="text-xs text-slate-500">Advisor opinion to the RS Board.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20D%20-%20CCI%20Annual%20Report%20on%20Form%2010-K%20for%20the%20Year%20Ended%20December%2031%2C%202024.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex d cci 10k annual report december 31 2024">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex D</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">CCI Annual Report on Form 10-K (Dec 31, 2024)</div>
+                <div class="text-xs text-slate-500">CCI annual financials.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20E%20-%20CCI%20Quarterly%20Report%20on%20Form%2010-Q%20for%20the%20Period%20Ended%20June%2030%2C%202025.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex e cci 10q quarterly report june 30 2025">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex E</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">CCI Quarterly Report on Form 10-Q (June 30, 2025)</div>
+                <div class="text-xs text-slate-500">CCI quarterly filing.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20F%20-%20CROP%20Financial%20Statements.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex f crop financial statements">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex F</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">CROP Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for CROP.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20G%20-%20RS%20Financial%20Statements.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex g rs financial statements rs financials">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex G</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RS Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RealSource Properties, Inc.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20H%20-%20RSOP%20Financial%20Statements.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex h rsop financial statements rsop financials">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex H</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RSOP Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RSOP.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20I%20-%20Management's%20Discussion%20and%20Analysis%20of%20Financial%20Condition%20and%20Results%20of%20Operations%20of%20the%20RS%20Parties.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex i mdna management analysis rs parties md&a">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex I</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Management’s Discussion &amp; Analysis (RS Parties)</div>
+                <div class="text-xs text-slate-500">Operational and financial discussion.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20J%20-%20RSM%20Financial%20Statements.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex j rsm financial statements">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex J</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RSM Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RSM.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20K%20-%20RS%20Advisor%20Financial%20Statements.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex k rs advisor financial statements advisor">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex K</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RS Advisor Financial Statements</div>
+                <div class="text-xs text-slate-500">Financial statements for RS Advisor.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20L%20-%20RS%20Property%20Manager%20Financial%20Statements.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex l manager property rs manager financials">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex L</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">RS Property Manager Financial Statements</div>
+                <div class="text-xs text-slate-500">Financials for RS Property Manager.</div>
+              </div>
+            </a>
+
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/Annex%20M%20-%20Unaudited%20Pro%20Forma%20Financial%20Information%20Combined%20Company%20and%20Combined%20Partnership.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="doc-card block rounded-lg border border-slate-200 bg-white p-3 hover:bg-slate-50 transition shadow-sm"
+               data-tags="annex m pro forma combined company partnership unaudited pro forma">
+              <div class="flex flex-col gap-1">
+                <span class="self-start rounded bg-slate-100 text-slate-600 text-[10px] font-bold px-1.5 py-0.5">Annex M</span>
+                <div class="text-sm font-medium text-slate-900 leading-snug">Unaudited Pro Forma Financial Information — Combined Company &amp; Partnership</div>
+                <div class="text-xs text-slate-500">Pro forma combined financials.</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
     </div>
 
+    <section class="mt-8 pt-6 border-t border-slate-200 text-center text-[11px] text-slate-400">
+      This material is confidential and intended solely for the recipient in connection with evaluating the proposed transaction. <br class="hidden sm:block">
+      Do not distribute without prior written consent.
+    </section>
+  </main>
+
+  <div id="w9-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="document.getElementById('close-w9-modal').click()"></div>
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4 pointer-events-none">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 pointer-events-auto">
+        <h2 class="text-lg font-semibold text-slate-900 mb-1">Investor Profile & W-9</h2>
+        <p class="text-sm text-slate-600 mb-4">Please select the version that matches your entity type.</p>
+
+        <div class="mb-4">
+          <h3 class="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2">Option 1: E-Sign (Recommended)</h3>
+          <div class="space-y-2">
+            <a href="https://www.jotform.com/sign/253445254911052/invite/01kc7e2dvkf58cb75b43bceb91"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 flex items-center justify-center gap-2">
+               Individual (SSN) - E-Sign
+            </a>
+            <a href="https://www.jotform.com/sign/253445204295052/invite/01kc7e3j8145d8e8f0613751d6"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link w-full rounded-lg bg-emerald-600 text-white text-sm font-medium py-2.5 hover:bg-emerald-500 flex items-center justify-center gap-2">
+               Entity (EIN) - E-Sign
+            </a>
+          </div>
+        </div>
+
+        <div class="mb-4 pt-4 border-t border-slate-100">
+          <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Option 2: Print & Sign (Manual)</h3>
+          <div class="space-y-2">
+             <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/SSN%20Profile%20Update%20-%20Print.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link flex items-center justify-center w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+               <svg class="w-4 h-4 mr-2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+               Download Individual (SSN) PDF
+            </a>
+            <a href="https://raw.githubusercontent.com/trevordmray/realsource.net/main/Merger%20Data%20Room/EIN%20Profile%20Update%20-%20Print.pdf"
+               target="_blank" rel="noopener noreferrer"
+               class="w9-link flex items-center justify-center w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+               <svg class="w-4 h-4 mr-2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+               Download Entity (EIN) PDF
+            </a>
+          </div>
+        </div>
+
+        <button id="close-w9-modal" type="button"
+          class="w-full rounded-lg bg-slate-100 text-slate-700 text-sm font-medium py-2.5 hover:bg-slate-200 flex items-center justify-center gap-2 mt-2">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="visit-gate" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
+
+        <h2 class="text-lg font-semibold text-slate-900 mb-2">Access Agreement</h2>
+
+        <p class="text-sm text-slate-600 mb-3">
+          By accessing the documents on this website, the undersigned hereby:
+          (i) acknowledges that the undersigned has received notice of the solicitation of written consents in connection with the transactions described in the confidential consent solicitation statement/private placement memorandum dated November 12, 2025 (“Consent Solicitation Statement/PPM”), which has been prepared by RealSource Properties, Inc. (“RS”), RealSource Properties OP, LP (“RSOP”), Cottonwood Communities, Inc. and Cottonwood Residential O.P., LP;
+          (ii) waives any notice requirements under the governing documents of RS or RSOP, as applicable; and
+          (iii) acknowledges that the documents on this website are confidential and proprietary and are being provided on a confidential basis solely to RS stockholders and RSOP limited partners as described in the Consent Solicitation Statement/PPM under the heading “Important Information and Notices.”
+        </p>
+
+        <form id="visit-gate-form" class="mt-3 space-y-4">
+          <label class="flex items-start gap-2 text-sm text-slate-700 cursor-pointer">
+            <input required type="checkbox" class="mt-0.5 accent-slate-900">
+            <span>Acknowledged and agreed</span>
+          </label>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Full Name</label>
+            <input required name="name" type="text" autocomplete="name"
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400" />
+          </div>
+
+          <button id="visit-gate-submit" type="submit"
+            class="w-full rounded-lg bg-slate-900 text-white text-sm font-medium py-2.5 hover:bg-slate-800 disabled:opacity-60 flex items-center justify-center gap-2">
+            Continue
+          </button>
+
+          <p id="visit-gate-error" class="text-xs text-red-600 hidden"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    
+    // --- Configuration ---
+    const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwtwtmEYGQMkiDVVrNlqKI3AEJiQuDTxFAGNBkc0cbe1jhgw1MLo_e5QIvSDmDsFZGA5A/exec";
+    const PAGE_ID = document.body.getAttribute('data-page') || 'Unknown';
+    const STORAGE_KEY = `rs_gate_${PAGE_ID}`;
+
+    // --- DOM Elements ---
+    const els = {
+      body: document.body,
+      filterInput: document.getElementById('filter'),
+      // Important: doc-card selector picks up new structure too
+      cards: Array.from(document.querySelectorAll('.doc-card')),
+      
+      // Gate Elements
+      gate: document.getElementById('visit-gate'),
+      gateForm: document.getElementById('visit-gate-form'),
+      gateSubmit: document.getElementById('visit-gate-submit'),
+      gateError: document.getElementById('visit-gate-error'),
+
+      // W-9 Modal Elements
+      w9Modal: document.getElementById('w9-modal'),
+      openW9Btn: document.getElementById('open-w9-modal'),
+      closeW9Btn: document.getElementById('close-w9-modal'),
+      w9Links: document.querySelectorAll('.w9-link')
+    };
+
+    // --- Utilities ---
+
+    function checkGate() {
+      try {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          toggleModal(els.gate, true);
+          return false;
+        }
+        return true;
+      } catch (e) {
+        toggleModal(els.gate, true);
+        return false;
+      }
+    }
+
+    function toggleModal(modal, show) {
+      if (!modal) return;
+      if (show) {
+        modal.classList.remove('hidden');
+        els.body.classList.add('modal-open');
+      } else {
+        modal.classList.add('hidden');
+        const otherOpen = document.querySelectorAll('.fixed:not(.hidden).z-50');
+        if (otherOpen.length === 0) {
+          els.body.classList.remove('modal-open');
+        }
+      }
+    }
+
+    function jsonpAsync(url, params = {}, timeout = 15000) {
+      return new Promise((resolve, reject) => {
+        const cbName = `cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+        const script = document.createElement('script');
+        let timer = null;
+        
+        const cleanup = () => {
+          if (timer) clearTimeout(timer);
+          window[cbName] = () => {}; 
+          try { delete window[cbName]; } catch(e) {}
+          if (script.parentNode) script.parentNode.removeChild(script);
+        };
+
+        window[cbName] = (response) => { cleanup(); resolve(response); };
+        script.onerror = () => { cleanup(); reject(new Error('Network error')); };
+        timer = setTimeout(() => { cleanup(); reject(new Error('Timeout')); }, timeout);
+
+        const searchParams = new URLSearchParams({ ...params, callback: cbName });
+        script.src = `${url}?${searchParams.toString()}`;
+        script.async = true;
+        document.head.appendChild(script);
+      });
+    }
+
+    // --- Initialization ---
+    checkGate();
+
+    if (els.filterInput) {
+      els.filterInput.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        els.cards.forEach(card => {
+          const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+          const text = card.textContent.toLowerCase();
+          const isMatch = !q || tags.includes(q) || text.includes(q);
+          
+          card.style.display = isMatch ? '' : 'none';
+        });
+      });
+    }
+
+    // W-9 Modal Logic
+    if (els.openW9Btn) {
+      els.openW9Btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleModal(els.w9Modal, true);
+      });
+    }
+    if (els.closeW9Btn) {
+      els.closeW9Btn.addEventListener('click', () => toggleModal(els.w9Modal, false));
+    }
+    els.w9Links.forEach(link => {
+      link.addEventListener('click', () => toggleModal(els.w9Modal, false));
+    });
+
+    if (els.gateForm) {
+      els.gateForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(els.gateForm);
+        const name = (formData.get('name') || '').toString().trim();
+        
+        els.gateError.classList.add('hidden');
+        if (!name) {
+          els.gateError.textContent = "Please enter your name.";
+          els.gateError.classList.remove('hidden');
+          return;
+        }
+
+        els.gateSubmit.disabled = true;
+        const originalBtnContent = els.gateSubmit.innerHTML;
+        els.gateSubmit.innerHTML = `<div class="flex items-center gap-2"><div class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Logging...</span></div>`;
+
+        try {
+          let ip = "";
+          try {
+            const ipData = await jsonpAsync("https://api.ipify.org", { format: "jsonp" }, 2000);
+            ip = ipData?.ip || "";
+          } catch (err) {}
+
+          const payload = {
+            name, page: PAGE_ID, ua: navigator.userAgent,
+            ref: document.referrer || "", ref_url: window.location.href, ip
+          };
+
+          await jsonpAsync(LOG_ENDPOINT, payload, 15000);
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, ts: Date.now() })); } catch (_) {} 
+          toggleModal(els.gate, false);
+
+        } catch (err) {
+          els.gateError.innerHTML = "Security Check Failed.<br>Unable to verify connection. Please disable ad-blockers or try a different network.";
+          els.gateError.classList.remove('hidden');
+        } finally {
+          els.gateSubmit.innerHTML = originalBtnContent;
+          els.gateSubmit.disabled = false;
+        }
+      });
+    }
+
+  })();
+  </script>
 </body>
 </html>
